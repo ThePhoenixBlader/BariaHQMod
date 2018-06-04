@@ -16,10 +16,7 @@ manifest.mf
 /.settings
 
 # IntelliJ excludes
-*.iml
-*.ipr
-*.iws
-/.idea
+.idea/
 
 # Maven excludes
 /target
@@ -32,3 +29,6 @@ manifest.mf
 ehthumbs.db
 Thumbs.db
 /nbproject/
+
+git.properties
+build.properties
