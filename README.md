@@ -1,12 +1,5 @@
-# UnraveledMCMod #
-A plugin modification for the UnraveledMC server.
-
-![Spigot](https://unraveledmc.com/githubapi?spigotver)
-![Aero](https://unraveledmc.com/githubapi?aerover)
-![BukkitTelnet](https://unraveledmc.com/githubapi?bukkittelnetver)
-![LibsDisguises](https://unraveledmc.com/githubapi?libsdisguisesver)
-![CoreProtect](https://unraveledmc.com/githubapi?coreprotectver)
-![JDA](https://unraveledmc.com/githubapi?jdaver)
+# BariaHQMod #
+A plugin modification for the BariaHQ server.
 
 Please read the following below:
 # TotalFreedomMod #
@@ -19,14 +12,14 @@ This plugin was originally coded by Steven Lawson (Madgeek1450), with Jerom van 
 
 Always keep `/totalfreedommod` (alias: `/tfm`) as a command. It gives the main developers credit for what they've originally started.
 
-In the FUtil class, it would be nice if you keep the UMCDEVS array there, but you must keep the TFDEVS array in the file Not doing so will result in consequences from an actual TotalFreedom developer. 
+In the FUtil class, it would be nice if you keep the BHQDEVS array there, but you must keep the TFDEVS array in the file Not doing so will result in consequences from an actual TotalFreedom developer. 
 
 ### Download ###
 You may download official binaries from the [releases page](https://github.com/TotalFreedom/TotalFreedomMod/releases).
 
-# UnraveledMCMod #
-UnraveledMCMod is a clone of TotalFreedomMod that's heavily modified. Now because it's cloned, we must comply with the TFM license:
+# BariaHQ #
+BariaHQ is a clone of TotalFreedomMod that's heavily modified. Now because it's cloned, we must comply with the TFM license:
 
 Due to the the TFM license, we are not allowed to publish binaries of the plugin. Only the official TFM developers are allowed to release compiled binaries. You must compile the plugin with NetBeans. Attempting to obtain money for compiling the plugin is strictly forbidden and illegal.
 
-You're also **not allowed** to send the compiled binaries of TFM/UMCM to anyone. That's against the TF license.
+You're also **not allowed** to send the compiled binaries of TFM/BHQM to anyone. That's against the TF license.
