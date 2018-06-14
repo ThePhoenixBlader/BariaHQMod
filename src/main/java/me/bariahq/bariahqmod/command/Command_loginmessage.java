@@ -27,12 +27,14 @@ public class Command_loginmessage extends FreedomCommand
             msg("The shop is currently disabled and this command is a shop item", ChatColor.RED);
             return true;
         }
+
         ShopData sd = plugin.sh.getData(playerSender);
         if (!sd.isCustomLoginMessage())
         {
             msg(plugin.sh.getShopPrefix() + ChatColor.RED + "You have not purchased " + ChatColor.BLUE + "Custom Login Messages" + ChatColor.RED + " yet!");
             return true;
         }
+
         Inventory i = server.createInventory(null, 9, ChatColor.AQUA + "Login Messages");
         ItemStack removeLoginMessage = new ItemStack(Material.BARRIER);
         ItemMeta meta = removeLoginMessage.getItemMeta();
@@ -43,8 +45,8 @@ public class Command_loginmessage extends FreedomCommand
         i.setItem(1, animeFan);
         ItemStack someDamnBot = newLoginMessage(new ItemStack(Material.NAME_TAG), "Some damn bot", ChatColor.GREEN, "&aprobably some damn bot", playerSender);
         i.setItem(2, someDamnBot);
-        ItemStack UnraveledMCAddict = newLoginMessage(new ItemStack(Material.NAME_TAG), "UnraveledMC Addict", ChatColor.GOLD, "an &7&lUnraveled&8&lMC &e&lAddict", playerSender);
-        i.setItem(3, UnraveledMCAddict);
+        ItemStack BariaHQAddict = newLoginMessage(new ItemStack(Material.NAME_TAG), "BariaHQ Addict", ChatColor.GOLD, "an &3Baria&bMC &eAddict", playerSender);
+        i.setItem(3, BariaHQAddict);
         ItemStack RWBYFan = newLoginMessage(new ItemStack(Material.NAME_TAG), "RWBY Fan", ChatColor.LIGHT_PURPLE, "a &4R&fW&8B&6Y &dFan", playerSender);
         i.setItem(4, RWBYFan);
         playerSender.openInventory(i);

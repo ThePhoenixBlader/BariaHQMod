@@ -1,8 +1,8 @@
 package me.bariahq.bariahqmod.config;
 
-import java.util.List;
-
 import me.bariahq.bariahqmod.BariaHQMod;
+
+import java.util.List;
 
 public enum ConfigEntry
 {
@@ -115,6 +115,19 @@ public enum ConfigEntry
         this.configName = configName;
     }
 
+    public static ConfigEntry findConfigEntry(String name)
+    {
+        name = name.toLowerCase().replace("_", "");
+        for (ConfigEntry entry : values())
+        {
+            if (entry.toString().toLowerCase().replace("_", "").equals(name))
+            {
+                return entry;
+            }
+        }
+        return null;
+    }
+
     public Class<?> getType()
     {
         return type;
@@ -183,18 +196,5 @@ public enum ConfigEntry
     private MainConfig getConfig()
     {
         return BariaHQMod.plugin().config;
-    }
-
-    public static ConfigEntry findConfigEntry(String name)
-    {
-        name = name.toLowerCase().replace("_", "");
-        for (ConfigEntry entry : values())
-        {
-            if (entry.toString().toLowerCase().replace("_", "").equals(name))
-            {
-                return entry;
-            }
-        }
-        return null;
     }
 }

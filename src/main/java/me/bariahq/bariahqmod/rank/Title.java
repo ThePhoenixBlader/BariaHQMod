@@ -7,9 +7,9 @@ public enum Title implements Displayable
 {
     TFDEV("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     BHQDEV("an", "BariaHQ Developer", ChatColor.DARK_PURPLE, "BHQ-Dev"),
-    EXEC("an", "Executive", ChatColor.DARK_RED, "Exec"),
-    FOUNDER("the", "Founder", ChatColor.RED, "Founder"),
-    OWNER("an", "Owner", ChatColor.DARK_GREEN, "Owner");
+    EXEC("an", "Executive", ChatColor.RED, "Exec"),
+    FOUNDER("the", "Founder", ChatColor.DARK_AQUA, "Founder"),
+    OWNER("an", "Owner", ChatColor.DARK_AQUA, "Owner");
 
     @Getter
     private final String determiner;
@@ -42,13 +42,13 @@ public enum Title implements Displayable
     {
         return determiner + " " + color + ChatColor.ITALIC + name;
     }
-    
+
     @Override
     public String getDeterminer()
     {
         return determiner;
     }
-    
+
     @Override
     public String getItalicColoredName()
     {

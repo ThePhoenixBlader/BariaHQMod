@@ -45,7 +45,7 @@ public class FUtil
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     // Leave the TFDEVS List alone, those are the TotalFreedom Developers.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ", "OxLemonxO", "ZeroEpoch1969", "Mafrans");
-    public static final List<String> BHQDEVS = Arrays.asList("ZeroEpoch1969", "OkLemonxO", "Fleek");
+    public static final List<String> BHQDEVS = Arrays.asList("ZeroEpoch1969", "OkLemonxO", "_Fleek_");
     public static String DATE_STORAGE_FORMAT = "EEE, MMM d yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
@@ -78,7 +78,7 @@ public class FUtil
         }
         return true;
     }
-    
+
     public static void cancel(BukkitTask task)
     {
         if (task == null)
@@ -168,7 +168,7 @@ public class FUtil
             dump.delete();
         }
     }
-    
+
     public static void copyFile(InputStream in, String name) throws IOException
     {
         File file = new File(BariaHQMod.plugin().getDataFolder(), name);

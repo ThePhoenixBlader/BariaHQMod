@@ -60,7 +60,7 @@ public class ChatManager extends FreedomService
         final Player player = event.getPlayer();
         ShopData sd = plugin.sh.getData(player);
         String message = event.getMessage().trim();
-        
+
         if (!sd.isColoredchat())
         {
             // Strip color from messages
@@ -71,7 +71,7 @@ public class ChatManager extends FreedomService
             // Format color
             message = FUtil.colorize(message);
         }
-        
+
         // Execs can use formatting :^)
         if (!FUtil.isExecutive(player.getName()))
         {
@@ -108,7 +108,7 @@ public class ChatManager extends FreedomService
                 }
             }
         }
-        
+
         if (!plugin.al.isStaffMember(player))
         {
             for (String domain : DISGUSTING_HOST_DOMAINS)
@@ -135,14 +135,14 @@ public class ChatManager extends FreedomService
         event.setMessage(message);
 
         // Make format
-        String format = "<%1$s> %2$s";
+        String format = "%1$s " + FUtil.colorize("&7»&r") + " %2$s";
 
         String tag = fPlayer.getTag();
         if (tag != null && !tag.isEmpty())
         {
             format = tag.replace("%", "%%") + " " + format;
         }
-        
+
         // Check for mentions
         Boolean mentionEveryone = ChatColor.stripColor(message).toLowerCase().contains("@everyone") && plugin.al.isStaffMember(player);
         for (Player p : server.getOnlinePlayers())
@@ -186,7 +186,7 @@ public class ChatManager extends FreedomService
                 {
                     player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
                 }
-         
+
             }
         }
     }

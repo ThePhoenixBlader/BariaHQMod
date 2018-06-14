@@ -22,7 +22,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Shop extends FreedomService
 {
-    public final String GUIName = ChatColor.AQUA + "UnraveledMC Shop";
+    public final String GUIName = ChatColor.AQUA + "BariaHQ Shop";
     @Getter
     public final Map<String, ShopData> dataMap = Maps.newHashMap(); // ip,dataMap
     @Getter

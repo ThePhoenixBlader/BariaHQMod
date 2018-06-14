@@ -126,7 +126,7 @@ public class ShopGUIListener extends FreedomService
             }
             else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "UnraveledMC Addict"))
             {
-                sd.setLoginMessage("an &7&lUnraveled&8&lMC &e&lAddict");
+                sd.setLoginMessage("an &3Baria&bHQ &e&lAddict");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
