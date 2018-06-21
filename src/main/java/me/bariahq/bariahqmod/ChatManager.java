@@ -18,7 +18,7 @@ import org.bukkit.SoundCategory;
 
 public class ChatManager extends FreedomService
 {
-    public static ChatColor scc = ChatColor.GOLD;
+    public static ChatColor scc = ChatColor.AQUA;
     public static boolean scr = false;
     public static boolean scn = false;
     // Putting an end to free hosted server advertisements
