@@ -19,8 +19,11 @@ server:
   founders:
     - aggelosQQ
 
-  # All players who show up as executive
-  execs: []
+  # All players who show up as manager
+  managers:
+    - 64BitJava
+    - NosamH
+    - Cowgomooo12
 
   # URL players should appeal for bans at
   ban_url: https://bariahq.net/forum
