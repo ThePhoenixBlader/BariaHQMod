@@ -170,7 +170,7 @@ public class ChatManager extends FreedomService
                 if (scr == true)
                 {
                     cc = FUtil.randomChatColor();
-                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
                 }
                 else if (scn == true)
                 {
@@ -180,11 +180,11 @@ public class ChatManager extends FreedomService
                         ChatColor rc = FUtil.randomChatColor();
                         rm = rm + rc + c;
                     }
-                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + rm);
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
                 }
                 else
                 {
-                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
                 }
 
             }
