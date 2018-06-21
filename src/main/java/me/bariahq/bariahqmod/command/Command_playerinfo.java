@@ -10,7 +10,7 @@ import me.bariahq.bariahqmod.shop.ShopData;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Get info on a player.", usage = "/<command> <name>", aliases = "pi")
 public class Command_playerinfo extends FreedomCommand
 {

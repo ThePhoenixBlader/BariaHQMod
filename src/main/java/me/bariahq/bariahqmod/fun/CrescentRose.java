@@ -73,12 +73,12 @@ public class CrescentRose extends FreedomService
                     if (event.getHitEntity() instanceof Player)
                     {
                         Player target = (Player)event.getHitEntity();
-                        if (plugin.al.isStaffMember(target) && !FUtil.isExecutive(shooter.getName()))
+                        if (plugin.al.isStaffMember(target) && !FUtil.isManager(shooter.getName()))
                         {
                             FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
                             return;
                         }
-                        if (target.getGameMode().equals(GameMode.CREATIVE) && !FUtil.isExecutive(shooter.getName()))
+                        if (target.getGameMode().equals(GameMode.CREATIVE) && !FUtil.isManager(shooter.getName()))
                         {
                             return;
                         }
@@ -115,7 +115,7 @@ public class CrescentRose extends FreedomService
             Player p = event.getPlayer();
             if (p.getInventory().getItemInMainHand().equals(getCrescentRose()))
             {
-                if (!FUtil.isExecutive(p.getName()))
+                if (!FUtil.isManager(p.getName()))
                 {
                     ShopData sd = plugin.sh.getData(p);
                     if (plugin.sl.canAfford(use_price, sd.getCoins()))
@@ -145,7 +145,7 @@ public class CrescentRose extends FreedomService
                 p.getWorld().playSound(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 50, 2.5f);
 
                 // Executives don't need a cool down :^)
-                if (!FUtil.isExecutive(p.getName()))
+                if (!FUtil.isManager(p.getName()))
                 {
                     cooldowns.put(p.getName(), System.currentTimeMillis());
                 }
@@ -167,7 +167,7 @@ public class CrescentRose extends FreedomService
                 ShopData sd = plugin.sh.getData(p);
                 if (sd.isCrescentRose())
                 {
-                    if (!FUtil.isExecutive(p.getName()))
+                    if (!FUtil.isManager(p.getName()))
                     {
                         if (plugin.sl.canAfford(use_price, sd.getCoins()))
                         {
@@ -195,7 +195,7 @@ public class CrescentRose extends FreedomService
                         return;
                     }
                     // Executives don't need a cool down :^)
-                    if (!FUtil.isExecutive(p.getName()))
+                    if (!FUtil.isManager(p.getName()))
                     {
                         cooldowns.put(p.getName(), System.currentTimeMillis());
                     }

@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Send a command as someone else.", usage = "/<command> <fromname> <outcommand>", aliases = "sudo")
 public class Command_gcmd extends FreedomCommand
 {

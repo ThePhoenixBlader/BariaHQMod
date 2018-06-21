@@ -20,7 +20,7 @@ public class Command_myadmin extends FreedomCommand
     protected boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         checkPlayer();
-        checkRank(Rank.SUPER_ADMIN);
+        checkRank(Rank.MOD);
 
         if (args.length < 1)
         {
@@ -164,9 +164,9 @@ public class Command_myadmin extends FreedomCommand
                     return false;
                 }
 
-                if (!FUtil.isExecutive(target.getName()))
+                if (!FUtil.isManager(target.getName()))
                 {
-                    msg("Only executives can set custom shout colors!", ChatColor.RED);
+                    msg("Only managers can set custom shout colors!", ChatColor.RED);
                     return true;
                 }
                 else

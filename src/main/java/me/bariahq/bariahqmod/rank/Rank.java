@@ -9,8 +9,8 @@ public enum Rank implements Displayable
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.GREEN),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
-    SUPER_ADMIN("a", "Super Admin", Type.STAFF, "SA", ChatColor.AQUA),
-    TELNET_ADMIN("a", "Telnet Admin", Type.STAFF, "STA", ChatColor.BLUE),
+    MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
+    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GREEN),
     SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.GOLD),
     ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
@@ -100,7 +100,7 @@ public enum Rank implements Displayable
     {
         switch (this)
         {
-            case TELNET_ADMIN:
+            case ADMIN:
             case ADMIN_CONSOLE:
                 return ADMIN_CONSOLE;
             case SENIOR_ADMIN:

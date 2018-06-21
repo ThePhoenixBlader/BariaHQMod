@@ -29,7 +29,7 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
     private boolean active = true;
     @Getter
     @Setter
-    private Rank rank = Rank.SUPER_ADMIN;
+    private Rank rank = Rank.MOD;
     @Getter
     private final List<String> ips = Lists.newArrayList();
     @Getter

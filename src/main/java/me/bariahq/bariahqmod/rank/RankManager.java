@@ -74,9 +74,10 @@ public class RankManager extends FreedomService
         }
 
         // If the player's an executive, display that
-        if (ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
+        // Change this later \/
+        if (ConfigEntry.SERVER_MANAGERS.getList().contains(player.getName()) && !FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
-            return Title.EXEC;
+            return Title.MANAGER;
         }
 
         final Rank rank = getRank(player);

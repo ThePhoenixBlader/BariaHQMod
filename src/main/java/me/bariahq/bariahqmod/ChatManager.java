@@ -73,7 +73,7 @@ public class ChatManager extends FreedomService
         }
 
         // Execs can use formatting :^)
-        if (!FUtil.isExecutive(player.getName()))
+        if (!FUtil.isManager(player.getName()))
         {
             message = message.replaceAll(ChatColor.BOLD.toString(), "&l");
             message = message.replaceAll(ChatColor.MAGIC.toString(), "&k");

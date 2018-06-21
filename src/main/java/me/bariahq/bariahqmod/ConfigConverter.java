@@ -97,13 +97,13 @@ public class ConfigConverter extends PluginComponent<BariaHQMod>
             {
                 rank = Rank.SENIOR_ADMIN;
             }
-            else if (asec.getBoolean("is_telnet_admin"))
+            else if (asec.getBoolean("is_administrator"))
             {
-                rank = Rank.TELNET_ADMIN;
+                rank = Rank.ADMIN;
             }
             else
             {
-                rank = Rank.SUPER_ADMIN;
+                rank = Rank.MOD;
             }
             List<String> ips = asec.getStringList("ips");
             String loginMessage = asec.getString("custom_login_message");

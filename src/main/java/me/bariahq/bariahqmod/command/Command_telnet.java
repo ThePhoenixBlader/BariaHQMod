@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.TELNET_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.ADMIN, source = SourceType.BOTH)
 @CommandParameters(description = /* the description is temporary! */ "Shows how many staff members are connected to telnet", usage = "/<command>",
         aliases = /* /telnetlist is also temporary! It will be replaced when I get another thing
                 to add to this command!*/ "tlnt,telnetlist")

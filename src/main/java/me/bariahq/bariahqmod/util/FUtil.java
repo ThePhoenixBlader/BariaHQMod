@@ -70,9 +70,9 @@ public class FUtil
         }
     }
 
-    public static boolean isExecutive(String name)
+    public static boolean isManager(String name)
     {
-        if (!ConfigEntry.SERVER_EXECS.getList().contains(name) && !ConfigEntry.SERVER_OWNERS.getList().contains(name) && !BHQDEVS.contains(name))
+        if (!ConfigEntry.SERVER_MANAGERS.getList().contains(name) && !ConfigEntry.SERVER_OWNERS.getList().contains(name) && !BHQDEVS.contains(name))
         {
             return false;
         }

@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.ONLY_IN_GAME)
+@CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Take a selfie or throw the camera!", usage = "/<command> <selfie | throw>", aliases = "cam")
 public class Command_camera extends FreedomCommand
 {

@@ -7,7 +7,7 @@ public enum Title implements Displayable
 {
     TFDEV("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     BHQDEV("an", "BariaHQ Developer", ChatColor.DARK_PURPLE, "BHQ-Dev"),
-    EXEC("an", "Executive", ChatColor.RED, "Exec"),
+    MANAGER("a", "Manager", ChatColor.BLUE, "Manager"),
     FOUNDER("the", "Founder", ChatColor.DARK_AQUA, "Founder"),
     OWNER("an", "Owner", ChatColor.DARK_AQUA, "Owner");
 

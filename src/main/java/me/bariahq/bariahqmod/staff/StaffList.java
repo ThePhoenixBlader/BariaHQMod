@@ -138,7 +138,7 @@ public class StaffList extends FreedomService
             return false;
         }
 
-        return staffMember.getRank().ordinal() >= Rank.TELNET_ADMIN.ordinal();
+        return staffMember.getRank().ordinal() >= Rank.ADMIN.ordinal();
     }
 
     public boolean isSeniorAdmin(CommandSender sender)

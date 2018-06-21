@@ -42,10 +42,10 @@ public class Module_players extends HTTPDModule
 
             switch (staffMember.getRank())
             {
-                case SUPER_ADMIN:
+                case MOD:
                     mods.add(username);
                     break;
-                case TELNET_ADMIN:
+                case ADMIN:
                     admins.add(username);
                     break;
                 case SENIOR_ADMIN:

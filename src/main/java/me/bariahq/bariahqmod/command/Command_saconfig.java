@@ -36,7 +36,7 @@ public class Command_saconfig extends FreedomCommand
 
             case "clean":
             {
-                checkRank(Rank.TELNET_ADMIN);
+                checkRank(Rank.ADMIN);
 
                 FUtil.staffAction(sender.getName(), "Cleaning the staff list", true);
                 plugin.al.deactivateOldEntries(true);
@@ -47,7 +47,7 @@ public class Command_saconfig extends FreedomCommand
 
             case "reload":
             {
-                checkRank(Rank.SUPER_ADMIN);
+                checkRank(Rank.MOD);
 
                 FUtil.staffAction(sender.getName(), "Reloading the staff list", true);
                 plugin.al.load();
@@ -71,7 +71,7 @@ public class Command_saconfig extends FreedomCommand
                     return true;
                 }
 
-                if (!rank.isAtLeast(Rank.SUPER_ADMIN))
+                if (!rank.isAtLeast(Rank.MOD))
                 {
                     msg("Rank must be Mod or higher.", ChatColor.RED);
                     return true;
@@ -106,7 +106,7 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
-                checkRank(Rank.SUPER_ADMIN);
+                checkRank(Rank.MOD);
 
                 StaffMember staffMember = plugin.al.getEntryByName(args[1]);
 
@@ -137,7 +137,7 @@ public class Command_saconfig extends FreedomCommand
                 {
                     return false;
                 }
-                checkRank(Rank.TELNET_ADMIN);
+                checkRank(Rank.ADMIN);
 
                 // Player already on the list?
                 final Player player = getPlayer(args[1]);
@@ -209,7 +209,7 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
-                checkRank(Rank.TELNET_ADMIN);
+                checkRank(Rank.ADMIN);
 
                 Player player = getPlayer(args[1]);
                 StaffMember staffMember = player != null ? plugin.al.getStaffMember(player) : plugin.al.getEntryByName(args[1]);

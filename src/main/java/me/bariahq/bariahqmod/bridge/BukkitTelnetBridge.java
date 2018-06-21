@@ -82,7 +82,7 @@ public class BukkitTelnetBridge extends FreedomService
             final Map<String, Object> playerTags = entry.getValue();
 
             boolean isAdmin = false;
-            boolean isTelnetAdmin = false;
+            boolean isAdministrator = false;
             boolean isSeniorAdmin = false;
 
             final StaffMember staffMember = plugin.al.getStaffMember(player);
@@ -92,11 +92,11 @@ public class BukkitTelnetBridge extends FreedomService
 
                 isAdmin = active;
                 isSeniorAdmin = active && staffMember.getRank() == Rank.SENIOR_ADMIN;
-                isTelnetAdmin = active && (isSeniorAdmin || staffMember.getRank() == Rank.TELNET_ADMIN);
+                isAdministrator = active && (isSeniorAdmin || staffMember.getRank() == Rank.ADMIN);
             }
 
             playerTags.put("tfm.admin.isAdmin", isAdmin);
-            playerTags.put("tfm.admin.isTelnetAdmin", isTelnetAdmin);
+            playerTags.put("tfm.admin.isTelnetAdmin", isAdministrator);
             playerTags.put("tfm.admin.isSeniorAdmin", isSeniorAdmin);
 
             playerTags.put("tfm.playerdata.getTag", plugin.pl.getPlayer(player).getTag());
