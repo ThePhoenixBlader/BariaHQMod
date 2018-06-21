@@ -10,8 +10,8 @@ public enum Rank implements Displayable
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
     MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
-    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GREEN),
-    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.GOLD),
+    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GOLD),
+    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.RED),
     ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
