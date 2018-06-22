@@ -4,9 +4,14 @@ import com.earth2me.essentials.Essentials;
 import com.earth2me.essentials.User;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
+import me.bariahq.bariahqmod.command.Command_vanish;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 public class EssentialsBridge extends FreedomService
@@ -27,6 +32,7 @@ public class EssentialsBridge extends FreedomService
     @Override
     protected void onStop()
     {
+        Command_vanish.VANISHED.clear();
     }
 
     public Essentials getEssentialsPlugin()
@@ -128,6 +134,32 @@ public class EssentialsBridge extends FreedomService
             FLog.severe(ex);
         }
         return 0L;
+    }
+    
+    public void setVanished(String username, boolean vanished)
+    {
+        try
+        {
+            User user = getEssentialsUser(username);
+            if (user != null)
+            {
+                user.setVanished(vanished);
+            }
+        }
+        catch (Exception ex)
+        {
+            FLog.severe(ex);
+        }
+    }
+    
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerQuit(PlayerQuitEvent event)
+    {
+        Player player = event.getPlayer();
+        if (Command_vanish.VANISHED.contains(player))
+        {
+            Command_vanish.VANISHED.remove(player);
+        }
     }
 
     public boolean isEssentialsEnabled()

@@ -20,14 +20,17 @@ public enum Title implements Displayable
     @Getter
     private final String coloredTag;
     @Getter
+    private final String abbr;
+    @Getter
     private final ChatColor color;
 
-    private Title(String determiner, String name, ChatColor color, String tag)
+    private Title(String determiner, String name, ChatColor color, String abbr)
     {
         this.determiner = determiner;
         this.name = name;
-        this.tag = "[" + tag + "]";
+        this.tag = "[" + abbr + "]";
         this.coloredTag = ChatColor.DARK_GRAY + "[" + color + tag + ChatColor.DARK_GRAY + "]" + color;
+        this.abbr = abbr;
         this.color = color;
     }
 

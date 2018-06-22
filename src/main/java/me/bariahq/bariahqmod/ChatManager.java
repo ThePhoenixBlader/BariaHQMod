@@ -1,5 +1,6 @@
 package me.bariahq.bariahqmod;
 
+import com.google.common.base.Strings;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.shop.ShopData;
 import me.bariahq.bariahqmod.util.FLog;
@@ -13,12 +14,14 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import java.util.Arrays;
 import java.util.List;
+import me.bariahq.bariahqmod.rank.Displayable;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 
 public class ChatManager extends FreedomService
 {
-    public static ChatColor scc = ChatColor.GOLD;
+    public static ChatColor scc = ChatColor.AQUA;
     public static boolean scr = false;
     public static boolean scn = false;
     // Putting an end to free hosted server advertisements
@@ -156,21 +159,39 @@ public class ChatManager extends FreedomService
         // Set format
         event.setFormat(format);
     }
+    
+    public ChatColor getColor(StaffMember staff, Displayable display)
+    {
+        ChatColor color = display.getColor();
+        return color;
+    }
 
     public void adminChat(CommandSender sender, String message)
     {
         String name = sender.getName() + " " + plugin.rm.getDisplay(sender).getColoredTag() + ChatColor.WHITE;
         FLog.info("[STAFF] " + name + ": " + message);
+        Displayable display = plugin.rm.getDisplay(sender);
 
         for (Player player : server.getOnlinePlayers())
         {
+            StaffMember staff = plugin.al.getStaffMember(player);
             if (plugin.al.isStaffMember(player))
             {
                 ChatColor cc = scc;
                 if (scr == true)
                 {
                     cc = FUtil.randomChatColor();
-                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
+                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
+                    {
+                        String format = staff.getScFormat();
+                        ChatColor color = getColor(staff, display);
+                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
+                        player.sendMessage(FUtil.colorize(msg));
+                    }
+                    else
+                    {
+                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
+                    }
                 }
                 else if (scn == true)
                 {
@@ -180,11 +201,31 @@ public class ChatManager extends FreedomService
                         ChatColor rc = FUtil.randomChatColor();
                         rm = rm + rc + c;
                     }
-                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
+                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
+                    {
+                        String format = staff.getScFormat();
+                        ChatColor color = getColor(staff, display);
+                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
+                        player.sendMessage(FUtil.colorize(msg));
+                    }
+                    else
+                    {
+                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
+                    }
                 }
                 else
                 {
-                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
+                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
+                    {
+                        String format = staff.getScFormat();
+                        ChatColor color = getColor(staff, display);
+                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
+                        player.sendMessage(FUtil.colorize(msg));
+                    }
+                    else
+                    {
+                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
+                    }
                 }
 
             }

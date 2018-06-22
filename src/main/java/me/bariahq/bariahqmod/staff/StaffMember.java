@@ -50,6 +50,9 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private boolean commandSpy = false;
+    @Getter
+    @Setter
+    private String scFormat = null;
 
     public StaffMember(Player player)
     {
@@ -76,7 +79,8 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- Rank: ").append(rank.getName()).append("\n")
                 .append("- Is Active: ").append(active).append("\n")
                 .append("- Discord ID: ").append(discordID).append("\n")
-                .append("- Join Tag: ").append(tag);
+                .append("- Join Tag: ").append(tag)
+                .append("- Admin Chat Format: ").append(scFormat);
 
         return output.toString();
     }
@@ -103,6 +107,7 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
         discordID = cs.getString("discord_id", null);
         tag = cs.getString("tag", null);
         commandSpy = cs.getBoolean("command_spy", false);
+        scFormat = cs.getString("scformat", null);
     }
 
     @Override
@@ -119,6 +124,7 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("discord_id", discordID);
         cs.set("tag", tag);
         cs.set("command_spy", commandSpy);
+        cs.set("scformat", scFormat);
     }
 
     public boolean isAtLeast(Rank rank)

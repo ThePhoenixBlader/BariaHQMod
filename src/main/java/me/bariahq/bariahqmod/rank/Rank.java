@@ -25,6 +25,8 @@ public enum Rank implements Displayable
     @Getter
     private final String coloredTag;
     @Getter
+    private final String abbr;
+    @Getter
     private final ChatColor color;
 
     private Rank(String determiner, String name, Type type, String abbr, ChatColor color)
@@ -34,6 +36,7 @@ public enum Rank implements Displayable
         this.determiner = determiner;
         this.tag = abbr.isEmpty() ? "" : "[" + abbr + "]";
         this.coloredTag = abbr.isEmpty() ? "" : ChatColor.DARK_GRAY + "[" + color + abbr + ChatColor.DARK_GRAY + "]" + color;
+        this.abbr = abbr;
         this.color = color;
     }
 

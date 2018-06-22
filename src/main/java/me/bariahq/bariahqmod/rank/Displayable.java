@@ -8,6 +8,8 @@ public interface Displayable
     public String getName();
 
     public String getTag();
+    
+    public String getAbbr();
 
     public ChatColor getColor();
 

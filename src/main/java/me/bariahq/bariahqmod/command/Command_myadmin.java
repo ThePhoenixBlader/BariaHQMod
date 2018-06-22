@@ -12,7 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag>")
+@CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag | setscformat | clearscformat>")
 public class Command_myadmin extends FreedomCommand
 {
 
@@ -197,6 +197,25 @@ public class Command_myadmin extends FreedomCommand
                 target.setTag(null);
                 plugin.al.save();
                 plugin.al.updateTables();
+                return true;
+            }
+            case  "setscformat":
+            {
+                String format = StringUtils.join(args, " ", 1, args.length);
+                target.setScFormat(format);
+                plugin.al.save();
+                plugin.al.updateTables();
+                msg("Set staff chat format to \"" + format + "\".", ChatColor.GRAY);
+                String example = format.replace("%name%", "Example").replace("%rank%", Rank.SENIOR_ADMIN.getAbbr()).replace("%rankcolor%", Rank.SENIOR_ADMIN.getColor().toString()).replace("%msg%", "The quick brown fox jumps over the lazy dog.");
+                msg(ChatColor.GRAY + "Example: " + FUtil.colorize(example));
+                return true;
+            }
+            case "clearscformat":
+            {
+                target.setScFormat(null);
+                plugin.al.save();
+                plugin.al.updateTables();
+                msg("Cleared staff chat format.", ChatColor.GRAY);
                 return true;
             }
 

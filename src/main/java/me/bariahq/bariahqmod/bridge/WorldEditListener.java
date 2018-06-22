@@ -43,7 +43,7 @@ public class WorldEditListener extends PluginListener<BariaHQMod>
     {
         final Player player = event.getPlayer();
 
-        if (plugin.al.isStaffMember(player))
+        if (plugin.al.isAdmin(player))
         {
             return;
         }
@@ -54,12 +54,12 @@ public class WorldEditListener extends PluginListener<BariaHQMod>
             event.setCancelled(true);
         }
 
-        if (event.getLimit() < 0 || event.getLimit() > 10000)
+        if (event.getLimit() < 0 || event.getLimit() > 200000)
         {
             player.setOp(false);
             FUtil.bcastMsg(event.getPlayer().getName() + " tried to set their WorldEdit limit to " + event.getLimit() + " and has been de-opped", ChatColor.RED);
             event.setCancelled(true);
-            player.sendMessage(ChatColor.RED + "You cannot set your limit higher than 10000 or to -1!");
+            player.sendMessage(ChatColor.RED + "You cannot set your limit higher than 200000 or to -1!");
         }
     }
 
