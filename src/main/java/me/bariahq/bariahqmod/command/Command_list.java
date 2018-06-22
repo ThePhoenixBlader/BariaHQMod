@@ -95,13 +95,13 @@ public class Command_list extends FreedomCommand
 
             Displayable display = plugin.rm.getDisplay(player);
 
-            names.add(display.getColoredTag() + player.getName());
+            names.add(display.getColoredTag() + " " + ChatColor.DARK_AQUA + player.getName());
         }
 
         String playerType = listFilter == null ? "players" : listFilter.toString().toLowerCase().replace('_', ' ');
 
         onlineUsers.append("Connected ");
-        onlineUsers.append(playerType + ": ");
+        onlineUsers.append(playerType).append(": ");
         onlineUsers.append(StringUtils.join(names, ChatColor.WHITE + ", "));
 
         if (senderIsConsole)

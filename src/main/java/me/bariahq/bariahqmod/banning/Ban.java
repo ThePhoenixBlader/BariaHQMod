@@ -170,27 +170,26 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
 
     public String bakeKickMessage()
     {
-        final StringBuilder message = new StringBuilder(ChatColor.GOLD + "You");
-
-        message.append(!hasUsername() ? "r IP address is" : " are").append(" temporarily banned from this server.");
-        message.append("\nAppeal at ").append(ChatColor.BLUE)
+        final StringBuilder message = new StringBuilder(ChatColor.DARK_AQUA + "Baria" + ChatColor.AQUA + "HQ");
+        message.append(ChatColor.DARK_AQUA).append("\nYou").append(!hasUsername() ? "r IP address is" : " are").append(" temporarily banned from this server.");
+        message.append("\nAppeal at ").append(ChatColor.AQUA)
                 .append(ConfigEntry.SERVER_BAN_URL.getString());
 
         if (reason != null)
         {
-            message.append("\n").append(ChatColor.RED).append("Reason: ").append(ChatColor.GOLD)
+            message.append("\n").append(ChatColor.DARK_AQUA).append("Reason ").append(ChatColor.GRAY).append("» ").append(ChatColor.AQUA)
                     .append(ChatColor.translateAlternateColorCodes('&', reason));
         }
 
         if (by != null)
         {
-            message.append("\n").append(ChatColor.RED).append("Banned by: ").append(ChatColor.GOLD)
+            message.append("\n").append(ChatColor.DARK_AQUA).append("Banned by ").append(ChatColor.GRAY).append("» ").append(ChatColor.AQUA)
                     .append(by);
         }
 
         if (getExpiryUnix() != 0)
         {
-            message.append("\n").append(ChatColor.RED).append("Expires: ").append(ChatColor.GOLD)
+            message.append("\n").append(ChatColor.DARK_AQUA).append("Expires ").append(ChatColor.GRAY).append("» ").append(ChatColor.AQUA)
                     .append(DATE_FORMAT.format(FUtil.getUnixDate(expiryUnix)));
         }
 

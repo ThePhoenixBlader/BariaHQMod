@@ -30,7 +30,7 @@ public class Command_banip extends FreedomCommand
             return true;
         }
         String reason = null;
-        if (args.length > 1)
+        if (args.length == 2)
         {
             reason = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
         }
@@ -47,6 +47,13 @@ public class Command_banip extends FreedomCommand
         if (reason != null)
         {
             bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
+        }
+        if (args.length == 3)
+        {
+            if (args[0].equals("-pur"))
+            {
+                bcast.append(ChatColor.RED).append(" - PUR");
+            }
         }
         FUtil.bcastMsg(bcast.toString());
         

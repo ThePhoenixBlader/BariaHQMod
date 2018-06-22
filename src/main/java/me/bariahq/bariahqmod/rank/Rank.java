@@ -1,6 +1,7 @@
 package me.bariahq.bariahqmod.rank;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.ChatColor;
 
 public enum Rank implements Displayable
@@ -9,6 +10,7 @@ public enum Rank implements Displayable
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.GREEN),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
+    DONATOR("a", "Donator", Type.PLAYER, "Donator", ChatColor.RED),
     MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
     ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GOLD),
     SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.RED),
@@ -18,7 +20,6 @@ public enum Rank implements Displayable
     private final Type type;
     @Getter
     private final String name;
-    @Getter
     private final String determiner;
     @Getter
     private final String tag;
@@ -26,7 +27,7 @@ public enum Rank implements Displayable
     private final String coloredTag;
     @Getter
     private final String abbr;
-    @Getter
+    @Getter 
     private final ChatColor color;
 
     private Rank(String determiner, String name, Type type, String abbr, ChatColor color)
@@ -34,8 +35,8 @@ public enum Rank implements Displayable
         this.type = type;
         this.name = name;
         this.determiner = determiner;
-        this.tag = abbr.isEmpty() ? "" : "[" + abbr + "]";
-        this.coloredTag = abbr.isEmpty() ? "" : ChatColor.DARK_GRAY + "[" + color + abbr + ChatColor.DARK_GRAY + "]" + color;
+        this.tag = abbr.isEmpty() ? "" : abbr.toUpperCase();
+        this.coloredTag = abbr.isEmpty() ? "" : color + "" + ChatColor.BOLD + abbr.toUpperCase();
         this.abbr = abbr;
         this.color = color;
     }
@@ -63,7 +64,7 @@ public enum Rank implements Displayable
     {
         return color.toString() + ChatColor.ITALIC + name;
     }
-
+    
     public boolean isConsole()
     {
         return getType() == Type.STAFF_CONSOLE;

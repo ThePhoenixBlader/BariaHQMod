@@ -25,6 +25,7 @@ import java.io.OutputStream;
 
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.donator.DonatorMember;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;

@@ -55,6 +55,12 @@ public class RankManager extends FreedomService
             return Title.TFDEV;
         }
         
+        // If a player is a donor and not on the staff list, display that
+        if (plugin.dl.isDonator(player) && !plugin.al.isStaffMember(player))
+        {
+            return Rank.DONATOR;
+        }
+        
         // UMC Developers
         if (FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
@@ -201,7 +207,7 @@ public class RankManager extends FreedomService
         }
 
         // Set display
-        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.BHQDEVS.contains(player.getName()))
+        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.BHQDEVS.contains(player.getName()) || plugin.dl.isDonator(player))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();

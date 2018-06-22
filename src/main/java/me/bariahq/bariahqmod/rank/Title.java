@@ -22,15 +22,18 @@ public enum Title implements Displayable
     @Getter
     private final String abbr;
     @Getter
+    private final String donatorRank;
+    @Getter
     private final ChatColor color;
 
     private Title(String determiner, String name, ChatColor color, String abbr)
     {
         this.determiner = determiner;
         this.name = name;
-        this.tag = "[" + abbr + "]";
-        this.coloredTag = ChatColor.DARK_GRAY + "[" + color + tag + ChatColor.DARK_GRAY + "]" + color;
+        this.tag = abbr.toUpperCase();
+        this.coloredTag = abbr.isEmpty() ? "" : color + "" + ChatColor.BOLD + abbr.toUpperCase();
         this.abbr = abbr;
+        this.donatorRank = null;
         this.color = color;
     }
 

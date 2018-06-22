@@ -46,6 +46,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import java.io.InputStream;
 import java.util.Properties;
+import me.bariahq.bariahqmod.donator.DonatorList;
 
 
 public class BariaHQMod extends AeroPlugin<BariaHQMod>
@@ -111,6 +112,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
     public Lightning ln;
     public CrescentRose cr;
     public LevelManager lvm;
+    public DonatorList dl;
     //
     // Bridges
     public ServiceManager<BariaHQMod> bridges;
@@ -155,6 +157,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         BackupManager backups = new BackupManager(this);
         backups.createBackups(BariaHQMod.CONFIG_FILENAME, true);
         backups.createBackups(StaffList.CONFIG_FILENAME);
+        backups.createBackups(DonatorList.CONFIG_FILENAME);
         backups.createBackups(PermbanList.CONFIG_FILENAME);
 
         config = new MainConfig(this);
@@ -167,6 +170,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         wm = services.registerService(WorldManager.class);
         al = services.registerService(StaffList.class);
         rm = services.registerService(RankManager.class);
+        dl = services.registerService(DonatorList.class);
         lvm = services.registerService(LevelManager.class);
         cl = services.registerService(CommandLoader.class);
         cb = services.registerService(CommandBlocker.class);

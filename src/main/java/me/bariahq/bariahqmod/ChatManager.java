@@ -168,7 +168,8 @@ public class ChatManager extends FreedomService
 
     public void adminChat(CommandSender sender, String message)
     {
-        String name = sender.getName() + " " + plugin.rm.getDisplay(sender).getColoredTag() + ChatColor.WHITE;
+        String name = sender.getName();
+        String tag = plugin.rm.getDisplay(sender).getColoredTag() + " ";
         FLog.info("[STAFF] " + name + ": " + message);
         Displayable display = plugin.rm.getDisplay(sender);
 
@@ -190,7 +191,7 @@ public class ChatManager extends FreedomService
                     }
                     else
                     {
-                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
+                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
                     }
                 }
                 else if (scn == true)
@@ -210,7 +211,7 @@ public class ChatManager extends FreedomService
                     }
                     else
                     {
-                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
+                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
                     }
                 }
                 else
@@ -224,7 +225,7 @@ public class ChatManager extends FreedomService
                     }
                     else
                     {
-                        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
+                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
                     }
                 }
 
