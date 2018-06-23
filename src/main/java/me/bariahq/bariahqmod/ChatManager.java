@@ -183,17 +183,7 @@ public class ChatManager extends FreedomService
                 if (scr == true)
                 {
                     cc = FUtil.randomChatColor();
-                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
-                    {
-                        String format = staff.getScFormat();
-                        ChatColor color = getColor(staff, display);
-                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
-                        player.sendMessage(FUtil.colorize(msg));
-                    }
-                    else
-                    {
-                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
-                    }
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "]" + tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
                 }
                 else if (scn == true)
                 {
@@ -203,31 +193,11 @@ public class ChatManager extends FreedomService
                         ChatColor rc = FUtil.randomChatColor();
                         rm = rm + rc + c;
                     }
-                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
-                    {
-                        String format = staff.getScFormat();
-                        ChatColor color = getColor(staff, display);
-                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
-                        player.sendMessage(FUtil.colorize(msg));
-                    }
-                    else
-                    {
-                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
-                    }
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "]" + tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + ChatColor.AQUA + rm);
                 }
                 else
                 {
-                    if (!Strings.isNullOrEmpty(staff.getScFormat()))
-                    {
-                        String format = staff.getScFormat();
-                        ChatColor color = getColor(staff, display);
-                        String msg = format.replace("%name%", sender.getName()).replace("%rank%", display.getAbbr()).replace("%rankcolor%", color.toString()).replace("%msg%", message);
-                        player.sendMessage(FUtil.colorize(msg));
-                    }
-                    else
-                    {
-                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
-                    }
+                    player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "STAFF" + ChatColor.DARK_GRAY + "]" + tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
                 }
 
             }
