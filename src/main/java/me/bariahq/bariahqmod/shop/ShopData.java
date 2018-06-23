@@ -1,25 +1,26 @@
 package me.bariahq.bariahqmod.shop;
 
 import com.google.common.collect.Lists;
-import java.util.Collections;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+import me.bariahq.bariahqmod.leveling.Level;
 import net.pravian.aero.base.ConfigLoadable;
 import net.pravian.aero.base.ConfigSavable;
 import net.pravian.aero.base.Validatable;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
-import me.bariahq.bariahqmod.leveling.Level;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
 {
 
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private String username;
-    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private int coins;
@@ -100,12 +101,12 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
     {
         return ips.remove(ip);
     }
-    
+
     public Level getLevel()
     {
         return Level.findLevel(level);
     }
-    
+
     public void setLevel(Level lvl)
     {
         level = lvl.toString();

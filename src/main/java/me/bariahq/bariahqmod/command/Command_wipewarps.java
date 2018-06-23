@@ -1,12 +1,13 @@
 package me.bariahq.bariahqmod.command;
 
-import java.io.File;
+import com.earth2me.essentials.Essentials;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import com.earth2me.essentials.Essentials;
+
+import java.io.File;
 
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
 @CommandParameters(description = "Removes essentials warps", usage = "/<command>")

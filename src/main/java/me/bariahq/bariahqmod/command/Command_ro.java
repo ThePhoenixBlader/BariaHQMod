@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.DepreciationAggregator;
 import me.bariahq.bariahqmod.util.FUtil;
@@ -15,10 +13,41 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = false)
 @CommandParameters(description = "Remove all blocks of a certain type in the radius of certain players.", usage = "/<command> <block> [radius (default=50)] [player]")
 public class Command_ro extends FreedomCommand
 {
+
+    public static int replaceBlocks(Location center, Material fromMaterial, Material toMaterial, int radius)
+    {
+        int affected = 0;
+
+        Block centerBlock = center.getBlock();
+        for (int xOffset = -radius; xOffset <= radius; xOffset++)
+        {
+            for (int yOffset = -radius; yOffset <= radius; yOffset++)
+            {
+                for (int zOffset = -radius; zOffset <= radius; zOffset++)
+                {
+                    Block block = centerBlock.getRelative(xOffset, yOffset, zOffset);
+
+                    if (block.getType().equals(fromMaterial))
+                    {
+                        if (block.getLocation().distanceSquared(center) < (radius * radius))
+                        {
+                            block.setType(toMaterial);
+                            affected++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return affected;
+    }
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -126,33 +155,5 @@ public class Command_ro extends FreedomCommand
         FUtil.staffAction(sender.getName(), "Remove complete! " + affected + " blocks removed.", false);
 
         return true;
-    }
-
-    public static int replaceBlocks(Location center, Material fromMaterial, Material toMaterial, int radius)
-    {
-        int affected = 0;
-
-        Block centerBlock = center.getBlock();
-        for (int xOffset = -radius; xOffset <= radius; xOffset++)
-        {
-            for (int yOffset = -radius; yOffset <= radius; yOffset++)
-            {
-                for (int zOffset = -radius; zOffset <= radius; zOffset++)
-                {
-                    Block block = centerBlock.getRelative(xOffset, yOffset, zOffset);
-
-                    if (block.getType().equals(fromMaterial))
-                    {
-                        if (block.getLocation().distanceSquared(center) < (radius * radius))
-                        {
-                            block.setType(toMaterial);
-                            affected++;
-                        }
-                    }
-                }
-            }
-        }
-
-        return affected;
     }
 }

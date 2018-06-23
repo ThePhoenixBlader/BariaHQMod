@@ -8,9 +8,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.event.block.Action;
 
 public class InteractBlocker extends FreedomService
 {
@@ -99,7 +99,7 @@ public class InteractBlocker extends FreedomService
             }
         }
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onSignRightClick(PlayerInteractEvent event)
     {

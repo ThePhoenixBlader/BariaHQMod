@@ -22,15 +22,15 @@ public class Command_totalfreedommod extends FreedomCommand
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
         msg("Created by Madgeek1450 and Prozza.", ChatColor.GOLD);
         msg(String.format("Version "
-                + ChatColor.BLUE + "%s %s.%s " + ChatColor.GOLD + "("
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
+                        + ChatColor.BLUE + "%s %s.%s " + ChatColor.GOLD + "("
+                        + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
                 null,
                 null,
                 null,
                 null), ChatColor.GOLD);
         msg(String.format("Compiled "
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
-                + ChatColor.BLUE + "%s",
+                        + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
+                        + ChatColor.BLUE + "%s",
                 null,
                 null), ChatColor.GOLD);
         msg("Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod"

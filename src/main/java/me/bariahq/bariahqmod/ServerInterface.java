@@ -1,8 +1,5 @@
 package me.bariahq.bariahqmod;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.minecraft.server.v1_12_R1.EntityPlayer;
@@ -10,6 +7,10 @@ import net.minecraft.server.v1_12_R1.MinecraftServer;
 import net.minecraft.server.v1_12_R1.PropertyManager;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.CraftServer;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ServerInterface extends FreedomService
 {
@@ -21,16 +22,6 @@ public class ServerInterface extends FreedomService
         super(plugin);
     }
 
-    @Override
-    protected void onStart()
-    {
-    }
-
-    @Override
-    protected void onStop()
-    {
-    }
-
     public static void warnVersion()
     {
         final String nms = FUtil.getNmsVersion();
@@ -40,6 +31,16 @@ public class ServerInterface extends FreedomService
             FLog.warning(BariaHQMod.pluginName + " is compiled for " + COMPILE_NMS_VERSION + " but the server is running version " + nms + "!");
             FLog.warning("This might result in unexpected behaviour!");
         }
+    }
+
+    @Override
+    protected void onStart()
+    {
+    }
+
+    @Override
+    protected void onStop()
+    {
     }
 
     public void setOnlineMode(boolean mode)

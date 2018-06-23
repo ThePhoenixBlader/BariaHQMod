@@ -1,8 +1,8 @@
 package me.bariahq.bariahqmod.blocking.command;
 
 import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -21,16 +21,6 @@ public enum CommandBlockerRank
     private CommandBlockerRank(String token)
     {
         this.token = token;
-    }
-
-    public String getToken()
-    {
-        return this.token;
-    }
-
-    public boolean hasPermission(CommandSender sender)
-    {
-        return fromSender(sender).ordinal() >= ordinal();
     }
 
     public static CommandBlockerRank fromSender(CommandSender sender)
@@ -69,5 +59,15 @@ public enum CommandBlockerRank
             }
         }
         return ANYONE;
+    }
+
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    public boolean hasPermission(CommandSender sender)
+    {
+        return fromSender(sender).ordinal() >= ordinal();
     }
 }

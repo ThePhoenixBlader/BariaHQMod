@@ -1,9 +1,5 @@
 package me.bariahq.bariahqmod.fun;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.util.DepreciationAggregator;
@@ -13,6 +9,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerMoveEvent;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Trailer extends FreedomService
 {

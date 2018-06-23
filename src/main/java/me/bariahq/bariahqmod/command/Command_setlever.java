@@ -1,6 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.List;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.DepreciationAggregator;
 import org.bukkit.Location;
@@ -10,6 +9,8 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
 @CommandParameters(description = "Set the on/off state of the lever at position x, y, z in world 'worldname'.", usage = "/<command> <x> <y> <z> <worldname> <on|off>")

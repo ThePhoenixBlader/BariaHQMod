@@ -1,4 +1,3 @@
-
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;

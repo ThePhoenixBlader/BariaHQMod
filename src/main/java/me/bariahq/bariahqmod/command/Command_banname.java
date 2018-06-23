@@ -29,10 +29,10 @@ public class Command_banname extends FreedomCommand
         {
             reason = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
         }
-        
+
         Ban ban = Ban.forPlayerName(username, sender, null, reason);
         plugin.bm.addBan(ban);
-        
+
         final StringBuilder bcast = new StringBuilder()
                 .append(ChatColor.RED)
                 .append(sender.getName())
@@ -44,7 +44,7 @@ public class Command_banname extends FreedomCommand
             bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
         }
         FUtil.bcastMsg(bcast.toString());
-        
+
         Player player = getPlayer(args[0]);
         if (player != null)
         {

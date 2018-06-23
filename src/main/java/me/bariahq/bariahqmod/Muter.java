@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod;
 
-import java.util.Arrays;
-import java.util.List;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.util.FLog;
@@ -14,6 +12,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Muter extends FreedomService
 {

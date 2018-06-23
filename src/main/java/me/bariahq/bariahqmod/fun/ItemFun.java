@@ -1,9 +1,5 @@
 package me.bariahq.bariahqmod.fun;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
@@ -22,6 +18,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class ItemFun extends FreedomService
 {

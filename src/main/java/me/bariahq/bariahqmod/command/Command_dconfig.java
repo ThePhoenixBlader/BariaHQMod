@@ -2,13 +2,9 @@
  */
 package me.bariahq.bariahqmod.command;
 
-import java.util.Date;
-import me.bariahq.bariahqmod.donator.DonatorList;
 import me.bariahq.bariahqmod.donator.DonatorMember;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.rank.Rank;
-import me.bariahq.bariahqmod.shop.ShopData;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
@@ -16,6 +12,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Date;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Manage donators.", usage = "/<command> <list | reload | | <add | remove | info> <username>>")
@@ -130,7 +128,7 @@ public class Command_dconfig extends FreedomCommand
                         donator.setName(player.getName());
                         donator.addIp(Ips.getIp(player));
                     }
-                    
+
                     donator.setLastLogin(new Date());
 
                     plugin.dl.save();

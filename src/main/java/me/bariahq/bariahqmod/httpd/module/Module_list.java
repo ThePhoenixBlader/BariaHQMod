@@ -1,11 +1,12 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.util.Collection;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import java.util.Collection;
 
 public class Module_list extends HTTPDModule
 {

@@ -1,11 +1,11 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.shop.ShopData;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import me.bariahq.bariahqmod.shop.ShopData;
-import org.bukkit.ChatColor;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Gives you Crescent Rose", usage = "/<command>", aliases = "cr")

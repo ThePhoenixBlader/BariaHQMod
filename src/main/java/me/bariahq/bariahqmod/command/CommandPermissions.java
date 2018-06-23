@@ -1,8 +1,9 @@
 package me.bariahq.bariahqmod.command;
 
+import me.bariahq.bariahqmod.rank.Rank;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import me.bariahq.bariahqmod.rank.Rank;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CommandPermissions

@@ -10,10 +10,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
-import org.bukkit.potion.PotionEffect;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Vanish/unvanish yourself.", usage = "/<command>", aliases = "v")
@@ -21,7 +21,8 @@ public class Command_vanish extends FreedomCommand
 {
     public static ArrayList<Player> VANISHED = new ArrayList<Player>();
 
-    public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
+    public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
+    {
         Displayable display = plugin.rm.getDisplay(playerSender);
         String loginMsg = display.getColoredLoginMessage();
         String displayName = display.getColor() + playerSender.getName();

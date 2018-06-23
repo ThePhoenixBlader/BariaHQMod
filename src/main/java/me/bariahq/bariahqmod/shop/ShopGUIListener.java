@@ -4,14 +4,14 @@ import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
-import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class ShopGUIListener extends FreedomService
 {
@@ -29,7 +29,7 @@ public class ShopGUIListener extends FreedomService
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event)
     {
@@ -147,14 +147,14 @@ public class ShopGUIListener extends FreedomService
             }
         }
     }
-    
+
     public String createLoginMessage(Player player, String msg)
     {
         String loginMessage = ChatColor.AQUA + player.getName() + " is " + plugin.rm.getDisplay(player).getDeterminer() + " "
                 + plugin.rm.getDisplay(player).getItalicColoredName() + ChatColor.AQUA + " and " + FUtil.colorize(msg);
         return loginMessage;
     }
-    
+
     public boolean canAfford(int price, int coins)
     {
         return (coins >= price);

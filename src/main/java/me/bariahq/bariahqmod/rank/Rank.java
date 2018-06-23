@@ -1,19 +1,19 @@
 package me.bariahq.bariahqmod.rank;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.ChatColor;
 
 public enum Rank implements Displayable
 {
 
+    SUPER_ADMIN("", "", Type.PLAYER, "", null),
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.GREEN),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
     DONATOR("a", "Donator", Type.PLAYER, "Donator", ChatColor.RED),
     MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
     ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GOLD),
-    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.RED),
+    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrAdmin", ChatColor.RED),
     ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
@@ -27,7 +27,7 @@ public enum Rank implements Displayable
     private final String coloredTag;
     @Getter
     private final String abbr;
-    @Getter 
+    @Getter
     private final ChatColor color;
 
     private Rank(String determiner, String name, Type type, String abbr, ChatColor color)
@@ -39,6 +39,19 @@ public enum Rank implements Displayable
         this.coloredTag = abbr.isEmpty() ? "" : color + "" + ChatColor.BOLD + abbr.toUpperCase();
         this.abbr = abbr;
         this.color = color;
+    }
+
+    public static Rank findRank(String string)
+    {
+        try
+        {
+            return Rank.valueOf(string.toUpperCase());
+        }
+        catch (Exception ignored)
+        {
+        }
+
+        return Rank.NON_OP;
     }
 
     @Override
@@ -64,7 +77,7 @@ public enum Rank implements Displayable
     {
         return color.toString() + ChatColor.ITALIC + name;
     }
-    
+
     public boolean isConsole()
     {
         return getType() == Type.STAFF_CONSOLE;
@@ -113,19 +126,6 @@ public enum Rank implements Displayable
             default:
                 return null;
         }
-    }
-
-    public static Rank findRank(String string)
-    {
-        try
-        {
-            return Rank.valueOf(string.toUpperCase());
-        }
-        catch (Exception ignored)
-        {
-        }
-
-        return Rank.NON_OP;
     }
 
     public static enum Type

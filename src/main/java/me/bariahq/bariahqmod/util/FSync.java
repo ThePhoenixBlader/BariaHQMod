@@ -23,7 +23,7 @@ public class FSync
 
         }.runTask(plugin);
     }
-    
+
     public static void playerMsg(final CommandSender sender, final String message)
     {
         final BariaHQMod plugin = BariaHQMod.plugin();

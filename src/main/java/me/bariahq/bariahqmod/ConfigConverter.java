@@ -2,18 +2,19 @@ package me.bariahq.bariahqmod;
 
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
+import me.bariahq.bariahqmod.banning.PermbanList;
+import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffList;
+import me.bariahq.bariahqmod.staff.StaffMember;
+import net.pravian.aero.component.PluginComponent;
+import net.pravian.aero.config.YamlConfig;
+import org.bukkit.configuration.ConfigurationSection;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
-import me.bariahq.bariahqmod.staff.StaffMember;
-import me.bariahq.bariahqmod.staff.StaffList;
-import me.bariahq.bariahqmod.banning.PermbanList;
-import me.bariahq.bariahqmod.rank.Rank;
-import net.pravian.aero.component.PluginComponent;
-import net.pravian.aero.config.YamlConfig;
-import org.bukkit.configuration.ConfigurationSection;
 
 public class ConfigConverter extends PluginComponent<BariaHQMod>
 {

@@ -3,6 +3,7 @@ package me.bariahq.bariahqmod.httpd;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+
 import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
 
 public class HTMLGenerationTools

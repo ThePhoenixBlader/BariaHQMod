@@ -1,24 +1,15 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.httpd.HTTPDaemon;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD.Response;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.*;
+import java.net.URLEncoder;
+import java.util.*;
 
 /*
  * This class was adapted from https://github.com/NanoHttpd/nanohttpd/blob/master/webserver/src/main/java/fi/iki/elonen/SimpleWebServer.java
@@ -27,7 +18,6 @@ import org.apache.commons.lang3.StringUtils;
 public class Module_file extends HTTPDModule
 {
 
-    private final File rootDir = new File(ConfigEntry.HTTPD_PUBLIC_FOLDER.getString());
     public static final Map<String, String> MIME_TYPES = new HashMap<>();
 
     static
@@ -59,6 +49,8 @@ public class Module_file extends HTTPDModule
         MIME_TYPES.put("exe", "application/octet-stream");
         MIME_TYPES.put("class", "application/octet-stream");
     }
+
+    private final File rootDir = new File(ConfigEntry.HTTPD_PUBLIC_FOLDER.getString());
 
     public Module_file(BariaHQMod plugin, NanoHTTPD.HTTPSession session)
     {

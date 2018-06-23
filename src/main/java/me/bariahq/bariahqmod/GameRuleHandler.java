@@ -1,12 +1,13 @@
 package me.bariahq.bariahqmod;
 
+import me.bariahq.bariahqmod.config.ConfigEntry;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
+
 import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import me.bariahq.bariahqmod.config.ConfigEntry;
-import org.bukkit.Bukkit;
-import org.bukkit.World;
 
 public class GameRuleHandler extends FreedomService
 {

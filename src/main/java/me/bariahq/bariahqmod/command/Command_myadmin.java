@@ -1,8 +1,7 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Arrays;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +9,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag | setscformat | clearscformat>")
@@ -156,7 +157,7 @@ public class Command_myadmin extends FreedomCommand
                 plugin.al.updateTables();
                 return true;
             }
-            
+
             case "setshoutcolor":
             {
                 if (args.length < 2)
@@ -178,7 +179,7 @@ public class Command_myadmin extends FreedomCommand
                     return true;
                 }
             }
-            
+
             case "settag":
             {
                 FUtil.staffAction(sender.getName(), "Setting personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
@@ -189,7 +190,7 @@ public class Command_myadmin extends FreedomCommand
                 plugin.al.updateTables();
                 return true;
             }
-            
+
             case "cleartag":
             {
                 FUtil.staffAction(sender.getName(), "Clearing personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
@@ -199,7 +200,7 @@ public class Command_myadmin extends FreedomCommand
                 plugin.al.updateTables();
                 return true;
             }
-            case  "setscformat":
+            case "setscformat":
             {
                 String format = StringUtils.join(args, " ", 1, args.length);
                 target.setScFormat(format);

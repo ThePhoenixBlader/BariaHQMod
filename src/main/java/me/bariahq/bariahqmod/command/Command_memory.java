@@ -1,10 +1,11 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
+
 import java.text.DecimalFormat;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)

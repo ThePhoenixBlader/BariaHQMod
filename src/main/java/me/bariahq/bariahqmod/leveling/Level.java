@@ -31,17 +31,30 @@ public enum Level implements Displayable
         this.rankupPrice = rankupPrice;
     }
 
+    public static Level findLevel(String string)
+    {
+        try
+        {
+            return Level.valueOf(string.toUpperCase());
+        }
+        catch (Exception ignored)
+        {
+        }
+
+        return null;
+    }
+
     @Override
     public String getColoredName()
     {
         return color + name;
     }
-    
+
     public int getLevel()
     {
         return ordinal();
     }
-    
+
     public Level getNextLevel()
     {
         Level[] levels = values();
@@ -62,19 +75,6 @@ public enum Level implements Displayable
             return false;
         }
         return getLevel() >= level.getLevel();
-    }
-    
-    public static Level findLevel(String string)
-    {
-        try
-        {
-            return Level.valueOf(string.toUpperCase());
-        }
-        catch (Exception ignored)
-        {
-        }
-
-        return null;
     }
 
 }

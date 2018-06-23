@@ -3,7 +3,6 @@ package me.bariahq.bariahqmod.command;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.md_5.bungee.api.ChatColor;
-
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

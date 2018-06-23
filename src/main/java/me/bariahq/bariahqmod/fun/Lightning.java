@@ -3,27 +3,28 @@ package me.bariahq.bariahqmod.fun;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.shop.ShopData;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.bukkit.Material;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.ChatColor;
-import org.bukkit.enchantments.Enchantment;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 @SuppressWarnings("LocalVariableHidesMemberVariable")
 public class Lightning extends FreedomService
 {
     public static List<Player> lpl = new ArrayList();
-    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
     public static int amount = 1;
+    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
 
     public Lightning(BariaHQMod plugin)
     {
@@ -44,7 +45,7 @@ public class Lightning extends FreedomService
     public void onPlayerInteract(PlayerInteractEvent event)
     {
         Player p = event.getPlayer();
-        Location l = p.getTargetBlock((Set<Material>)null, 600).getLocation();
+        Location l = p.getTargetBlock((Set<Material>) null, 600).getLocation();
         ShopData sd = plugin.sh.getData(p);
         if (sd.isThorHammer() && event.getItem() != null && event.getItem().equals(getThorHammer()))
         {
@@ -70,7 +71,7 @@ public class Lightning extends FreedomService
             }
         }
     }
-    
+
     public ItemStack getThorHammer()
     {
         ItemStack hammer = new ItemStack(Material.IRON_PICKAXE);

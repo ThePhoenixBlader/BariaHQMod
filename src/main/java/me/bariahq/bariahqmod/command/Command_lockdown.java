@@ -15,9 +15,9 @@ public class Command_lockdown extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-       boolean active = !plugin.lp.isLockdownEnabled();
-       plugin.lp.setLockdownEnabled(active);
-       FUtil.staffAction(sender.getName(), (active ? "A" : "De-a") + "ctivating server lockdown", true);
-       return true;
+        boolean active = !plugin.lp.isLockdownEnabled();
+        plugin.lp.setLockdownEnabled(active);
+        FUtil.staffAction(sender.getName(), (active ? "A" : "De-a") + "ctivating server lockdown", true);
+        return true;
     }
 }

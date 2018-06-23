@@ -2,9 +2,6 @@ package me.bariahq.bariahqmod.donator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
@@ -16,6 +13,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.ServicePriority;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 public class DonatorList extends FreedomService
 {
@@ -80,7 +81,7 @@ public class DonatorList extends FreedomService
             }
 
             donators.put(key, donator);
-    }
+        }
 
         updateTables();
         FLog.info("Loaded " + donators.size() + " donators with " + ipTable.size() + " IPs)");
@@ -290,5 +291,5 @@ public class DonatorList extends FreedomService
     {
         return ipTable.keySet();
     }
-    
+
 }

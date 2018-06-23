@@ -1,15 +1,18 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.banning.Ban;
 import me.bariahq.bariahqmod.player.PlayerData;
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Bans or unbans any player, even those who are not logged in anymore.", usage = "/<command> <purge | ban <username> [reason] | unban <username>>")
@@ -85,6 +88,8 @@ public class Command_glist extends FreedomCommand
             {
                 player.kickPlayer(ban.bakeKickMessage());
             }
+
+            plugin.pul.logPunishment(new Punishment(username, ips.get(0), sender.getName(), PunishmentType.BAN, reason));
             return true;
         }
 

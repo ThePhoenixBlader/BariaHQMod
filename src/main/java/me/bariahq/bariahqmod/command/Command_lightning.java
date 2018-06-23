@@ -1,8 +1,8 @@
 package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.rank.Rank;
-import me.bariahq.bariahqmod.fun.Lightning;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.fun.Lightning;
+import me.bariahq.bariahqmod.rank.Rank;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Toggle lightning power", usage = "/<command> [amount]")
 public class Command_lightning extends FreedomCommand
 {
-    
+
     int max_count = 50;
 
     @Override

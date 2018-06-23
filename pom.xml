@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.totalfreedom</groupId>
-    <artifactId>totalfreedom</artifactId>
+    <groupId>net.bariahq</groupId>
+    <artifactId>bariahq</artifactId>
     <version>5.2</version>
     <packaging>jar</packaging>
 
@@ -192,11 +193,12 @@
                         <phase>initialize</phase>
                         <configuration>
                             <target>
-                                <propertyfile file="src/main/resources/build.properties" comment="Build information. Edit this to your liking.">
-                                    <entry key="buildAuthor" default="unknown" />
-                                    <entry key="buildNumber" default="0" />
-                                    <entry key="buildCodeName" default="${bhq.build.codename}" />
-                                    <entry key="buildVersion" default="${project.version}" />
+                                <propertyfile file="src/main/resources/build.properties"
+                                              comment="Build information. Edit this to your liking.">
+                                    <entry key="buildAuthor" default="unknown"/>
+                                    <entry key="buildNumber" default="0"/>
+                                    <entry key="buildCodeName" default="${bhq.build.codename}"/>
+                                    <entry key="buildVersion" default="${project.version}"/>
                                 </propertyfile>
                             </target>
                         </configuration>
@@ -255,7 +257,8 @@
                     <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
                     <verbose>false</verbose>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <generateGitPropertiesFilename>${basedir}/src/main/resources/git.properties</generateGitPropertiesFilename>
+                    <generateGitPropertiesFilename>${basedir}/src/main/resources/git.properties
+                    </generateGitPropertiesFilename>
                     <format>properties</format>
                     <failOnNoGitDirectory>false</failOnNoGitDirectory>
                     <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
@@ -290,7 +293,8 @@
 
                 <configuration>
                     <buildNumberPropertyName>maven.buildnumber</buildNumberPropertyName>
-                    <buildNumberPropertiesFileLocation>${basedir}/src/main/resources/build.properties</buildNumberPropertiesFileLocation>
+                    <buildNumberPropertiesFileLocation>${basedir}/src/main/resources/build.properties
+                    </buildNumberPropertiesFileLocation>
                     <format>{0,number,#}</format>
                     <items>
                         <item>buildNumber</item>

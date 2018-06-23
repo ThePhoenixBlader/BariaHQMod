@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Arrays;
-import java.util.List;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
@@ -11,15 +9,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+import java.util.List;
+
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Set yourself a prefix", usage = "/<command> <set <tag..> | off | clear <player> | clearall | list>")
 public class Command_tag extends FreedomCommand
 {
 
     public static final List<String> FORBIDDEN_WORDS = Arrays.asList(new String[]
-    {
-        "helper", "mod", "admin", "owner", "dev", "exec", "staff", "founder"
-    });
+            {
+                    "helper", "mod", "admin", "owner", "dev", "exec", "staff", "founder"
+            });
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -118,13 +119,13 @@ public class Command_tag extends FreedomCommand
                 final String inputTag = StringUtils.join(args, " ", 1, args.length);
                 final String outputTag = FUtil.colorize(StringUtils.replaceEachRepeatedly(StringUtils.strip(inputTag),
                         new String[]
-                        {
-                            "" + ChatColor.COLOR_CHAR, "&k"
-                        },
+                                {
+                                        "" + ChatColor.COLOR_CHAR, "&k"
+                                },
                         new String[]
-                        {
-                            "", ""
-                        })) + ChatColor.RESET;
+                                {
+                                        "", ""
+                                })) + ChatColor.RESET;
 
                 if (!plugin.al.isStaffMember(sender))
                 {

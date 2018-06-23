@@ -53,7 +53,7 @@ public class WorldEditListener extends PluginListener<BariaHQMod>
             player.sendMessage(ChatColor.RED + "Only admins can change the limit for other players!");
             event.setCancelled(true);
         }
-        
+
         if (plugin.dl.isDonator(player))
         {
             if (event.getLimit() < 0 || event.getLimit() > 100000)

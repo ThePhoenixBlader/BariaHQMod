@@ -1,9 +1,9 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.config.ConfigEntry;
-import me.bariahq.bariahqmod.util.FUtil;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.shop.ShopData;
+import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

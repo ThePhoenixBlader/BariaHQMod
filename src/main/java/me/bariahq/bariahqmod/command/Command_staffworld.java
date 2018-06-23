@@ -15,12 +15,6 @@ import org.bukkit.entity.Player;
 public class Command_staffworld extends FreedomCommand
 {
 
-    private enum CommandMode
-    {
-
-        TELEPORT, GUEST, TIME, WEATHER;
-    }
-
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -94,7 +88,7 @@ public class Command_staffworld extends FreedomCommand
                 case GUEST:
                 {
                     checkRank(Rank.SENIOR_ADMIN);
-                
+
                     if (args.length == 2)
                     {
                         if ("list".equalsIgnoreCase(args[1]))
@@ -229,6 +223,12 @@ public class Command_staffworld extends FreedomCommand
         {
             throw new PermissionDeniedException();
         }
+    }
+
+    private enum CommandMode
+    {
+
+        TELEPORT, GUEST, TIME, WEATHER;
     }
 
     private class PermissionDeniedException extends Exception

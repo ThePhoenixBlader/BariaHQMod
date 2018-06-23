@@ -1,7 +1,6 @@
 package me.bariahq.bariahqmod.fun;
 
 import com.google.common.collect.Maps;
-import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import me.bariahq.bariahqmod.BariaHQMod;
@@ -12,6 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
+
+import java.util.Map;
 
 public class Jumppads extends FreedomService
 {

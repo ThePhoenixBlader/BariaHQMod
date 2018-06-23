@@ -1,16 +1,20 @@
 package me.bariahq.bariahqmod.command;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import me.bariahq.bariahqmod.banning.Ban;
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
+import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Temporarily ban someone.", usage = "/<command> [playername] [duration] [reason]")
@@ -71,6 +75,7 @@ public class Command_tempban extends FreedomCommand
         plugin.bm.addBan(Ban.forPlayer(player, sender, expires, reason));
 
         player.kickPlayer(sender.getName() + " - " + message.toString());
+        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.TEMPBAN, reason));
 
         return true;
     }

@@ -17,19 +17,21 @@
  */
 package me.bariahq.bariahqmod.world;
 
-import static java.lang.System.arraycopy;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static java.lang.System.arraycopy;
 
 @SuppressWarnings("deprecation")
 public class CleanroomChunkGenerator extends ChunkGenerator

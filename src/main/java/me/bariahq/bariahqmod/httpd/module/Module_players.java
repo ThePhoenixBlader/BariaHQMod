@@ -1,8 +1,8 @@
 package me.bariahq.bariahqmod.httpd.module;
 
 import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

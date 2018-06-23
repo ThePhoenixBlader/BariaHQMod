@@ -2,10 +2,10 @@ package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.staff.StaffMember;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Unlink your discord account to your minecraft account", usage = "/<command>")
@@ -20,7 +20,7 @@ public class Command_unlinkdiscord extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         StaffMember admin = plugin.al.getStaffMember(playerSender);
         if (admin.getDiscordID() == null)
         {

@@ -1,6 +1,5 @@
 package me.bariahq.bariahqmod.util;
 
-import java.util.Set;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
@@ -8,6 +7,8 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.material.MaterialData;
+
+import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class DepreciationAggregator

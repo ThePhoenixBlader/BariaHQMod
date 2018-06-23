@@ -1,15 +1,16 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
-import me.bariahq.bariahqmod.util.FUtil;
 import me.bariahq.bariahqmod.util.FSync;
-import org.bukkit.scheduler.BukkitRunnable;
+import me.bariahq.bariahqmod.util.FUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import java.io.IOException;
+import org.bukkit.scheduler.BukkitRunnable;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.BOTH)
@@ -25,15 +26,15 @@ public class Command_terminal extends FreedomCommand
             msg("Only the developers can use this command.", ChatColor.RED);
             return true;
         }
-        
+
         if (args.length == 0)
         {
             return false;
         }
-        
+
         final String[] command = args;
         final CommandSender commandSender = sender;
-        
+
         new BukkitRunnable()
         {
             @Override

@@ -1,13 +1,14 @@
 package me.bariahq.bariahqmod;
 
 import com.google.common.collect.Lists;
-import java.util.Collections;
-import java.util.List;
 import lombok.Getter;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+
+import java.util.Collections;
+import java.util.List;
 
 public class Announcer extends FreedomService
 {

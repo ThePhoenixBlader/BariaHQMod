@@ -1,7 +1,8 @@
- package me.bariahq.bariahqmod.command;
+package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,16 +22,16 @@ public class Command_console extends FreedomCommand
         {
             return false;
         }
-        
+
         if (!ConfigEntry.OVERLORD_IPS.getStringList().contains(playerSender.getAddress().getAddress().getHostAddress()))
         {
-            if (!plugin.al.isSeniorAdmin(playerSender))
+            if (!plugin.al.isSeniorAdmin(playerSender) && !FUtil.isManager(sender.getName()))
             {
                 noPerms();
                 return true;
             }
         }
-        
+
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), StringUtils.join(args, " "));
         msg("Command sent!", ChatColor.GREEN);
         return true;

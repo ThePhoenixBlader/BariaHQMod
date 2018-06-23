@@ -1,7 +1,10 @@
 package me.bariahq.bariahqmod.command;
 
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
+import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -16,33 +19,6 @@ import org.bukkit.entity.Player;
 public class Command_smite extends FreedomCommand
 {
 
-    @Override
-    public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
-    {
-        if (args.length < 1)
-        {
-            return false;
-        }
-
-        final Player bitch = getPlayer(args[0]);
-
-        String reason = null;
-        if (args.length > 1)
-        {
-            reason = StringUtils.join(args, " ", 1, args.length);
-        }
-
-        if (bitch == null)
-        {
-            msg(FreedomCommand.PLAYER_NOT_FOUND);
-            return true;
-        }
-
-        smite(bitch, reason, sender.getName());
-        plugin.da.setAdminDeopped(bitch.getName(), true);
-        return true;
-    }
-
     public static void smite(Player bitch)
     {
         smite(bitch, null, null);
@@ -56,7 +32,7 @@ public class Command_smite extends FreedomCommand
         {
             FUtil.bcastMsg("  Reason: " + reason, ChatColor.RED);
         }
-        
+
         if (by != null)
         {
             FUtil.bcastMsg("  Smitten by: " + by, ChatColor.RED);
@@ -90,5 +66,33 @@ public class Command_smite extends FreedomCommand
         {
             bitch.sendMessage(ChatColor.RED + "You've been smitten. Reason: " + reason);
         }
+    }
+
+    @Override
+    public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+        if (args.length < 1)
+        {
+            return false;
+        }
+
+        final Player bitch = getPlayer(args[0]);
+
+        String reason = null;
+        if (args.length > 1)
+        {
+            reason = StringUtils.join(args, " ", 1, args.length);
+        }
+
+        if (bitch == null)
+        {
+            msg(FreedomCommand.PLAYER_NOT_FOUND);
+            return true;
+        }
+
+        smite(bitch, reason, sender.getName());
+        plugin.da.setAdminDeopped(bitch.getName(), true);
+        plugin.pul.logPunishment(new Punishment(bitch.getName(), Ips.getIp(bitch), sender.getName(), PunishmentType.SMITE, reason));
+        return true;
     }
 }

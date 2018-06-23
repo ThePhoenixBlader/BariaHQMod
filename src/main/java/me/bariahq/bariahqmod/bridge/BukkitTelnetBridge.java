@@ -1,21 +1,22 @@
 package me.bariahq.bariahqmod.bridge;
 
-import java.util.Iterator;
-import java.util.Map;
+import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
+import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
+import me.bariahq.bariahqmod.util.FLog;
 import me.totalfreedom.bukkittelnet.BukkitTelnet;
 import me.totalfreedom.bukkittelnet.api.TelnetCommandEvent;
 import me.totalfreedom.bukkittelnet.api.TelnetPreLoginEvent;
 import me.totalfreedom.bukkittelnet.api.TelnetRequestDataTagsEvent;
-import me.bariahq.bariahqmod.FreedomService;
-import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
-import me.bariahq.bariahqmod.rank.Rank;
-import me.bariahq.bariahqmod.util.FLog;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.plugin.Plugin;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class BukkitTelnetBridge extends FreedomService
 {
@@ -35,7 +36,7 @@ public class BukkitTelnetBridge extends FreedomService
     protected void onStop()
     {
     }
-    
+
     public int getTelnetSessionAmount()
     {
         return getBukkitTelnetPlugin().appender.getSessions().size();
@@ -104,6 +105,7 @@ public class BukkitTelnetBridge extends FreedomService
             playerTags.put("tfm.essentialsBridge.getNickname", plugin.esb.getNickname(player.getName()));
         }
     }
+
     public BukkitTelnet getBukkitTelnetPlugin()
     {
         if (bukkitTelnetPlugin == null)

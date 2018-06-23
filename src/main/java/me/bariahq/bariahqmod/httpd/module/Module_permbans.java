@@ -1,11 +1,11 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.io.File;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.banning.PermbanList;
 import me.bariahq.bariahqmod.httpd.HTTPDaemon;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
+
+import java.io.File;
 
 public class Module_permbans extends HTTPDModule
 {

@@ -1,12 +1,12 @@
 package me.bariahq.bariahqmod.bridge;
 
-import me.libraryaddict.disguise.LibsDisguises;
-import me.libraryaddict.disguise.DisguiseAPI;
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.util.FLog;
-import org.bukkit.entity.Player;
+import me.libraryaddict.disguise.DisguiseAPI;
+import me.libraryaddict.disguise.LibsDisguises;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class LibsDisguisesBridge extends FreedomService
@@ -67,18 +67,18 @@ public class LibsDisguisesBridge extends FreedomService
         }
         return null;
     }
-    
+
     public void undisguiseAll(Boolean staff)
     {
         try
         {
             final LibsDisguises libsDisguises = getLibsDisguisesPlugin();
-            
+
             if (libsDisguises == null)
             {
                 return;
             }
-            
+
             for (Player player : server.getOnlinePlayers())
             {
                 if (DisguiseAPI.isDisguised(player))

@@ -1,45 +1,35 @@
 package me.bariahq.bariahqmod.fun;
 
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.shop.ShopData;
 import me.bariahq.bariahqmod.util.FUtil;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.bukkit.Color;
-import org.bukkit.Material;
-import org.bukkit.Location;
-import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.entity.Player;
-import org.bukkit.GameMode;
+import org.bukkit.*;
+import org.bukkit.FireworkEffect.Type;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.Sound;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.block.Action;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.ChatColor;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.FireworkEffect;
-import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.FireworkEffect.Type;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class CrescentRose extends FreedomService
 {
-    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
-    public List<Integer> bullets = new ArrayList<>();
     public final long cooldownTime = 30;
     public final int use_price = ConfigEntry.SHOP_CRESCENT_ROSE_USE_PRICE.getInteger();
+    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+    public List<Integer> bullets = new ArrayList<>();
 
     public CrescentRose(BariaHQMod plugin)
     {
@@ -55,24 +45,24 @@ public class CrescentRose extends FreedomService
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onBulletImpact(ProjectileHitEvent event)
     {
         if (event.getEntity() instanceof Arrow && bullets.contains(event.getEntity().getEntityId()))
         {
-            Arrow bullet = (Arrow)event.getEntity();
-            bullets.remove((Integer)bullet.getEntityId());
+            Arrow bullet = (Arrow) event.getEntity();
+            bullets.remove((Integer) bullet.getEntityId());
 
             if (event.getHitEntity() != null && event.getHitEntity() instanceof LivingEntity)
             {
                 if (bullet.getShooter() != null && bullet.getShooter() instanceof Player)
                 {
-                    Player shooter = (Player)bullet.getShooter();
-                    LivingEntity hitEntity = (LivingEntity)event.getHitEntity();
+                    Player shooter = (Player) bullet.getShooter();
+                    LivingEntity hitEntity = (LivingEntity) event.getHitEntity();
                     if (event.getHitEntity() instanceof Player)
                     {
-                        Player target = (Player)event.getHitEntity();
+                        Player target = (Player) event.getHitEntity();
                         if (plugin.al.isStaffMember(target) && !FUtil.isManager(shooter.getName()))
                         {
                             FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
@@ -106,12 +96,12 @@ public class CrescentRose extends FreedomService
             }
         }
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerRightClick(PlayerInteractEvent event)
     {
-    	if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
-    	{
+        if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+        {
             Player p = event.getPlayer();
             if (p.getInventory().getItemInMainHand().equals(getCrescentRose()))
             {
@@ -156,14 +146,14 @@ public class CrescentRose extends FreedomService
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerAttack(EntityDamageByEntityEvent event)
     {
-    	Entity attacker = event.getDamager();
-    	Entity target = event.getEntity();
+        Entity attacker = event.getDamager();
+        Entity target = event.getEntity();
         if (attacker instanceof Player && target instanceof LivingEntity)
         {
-            Player p = (Player)attacker;
+            Player p = (Player) attacker;
             ItemStack i = p.getInventory().getItemInMainHand();
             if (i != null && i.equals(getCrescentRose()))
-            {	 
+            {
                 ShopData sd = plugin.sh.getData(p);
                 if (sd.isCrescentRose())
                 {
@@ -189,8 +179,8 @@ public class CrescentRose extends FreedomService
                             return;
                         }
                     }
-                    if (target instanceof Player && !plugin.al.isStaffMember(p) && plugin.al.isStaffMember((Player)target))
-                    {	
+                    if (target instanceof Player && !plugin.al.isStaffMember(p) && plugin.al.isStaffMember((Player) target))
+                    {
                         FUtil.playerMsg(p, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
                         return;
                     }
@@ -204,13 +194,13 @@ public class CrescentRose extends FreedomService
                     target.getWorld().playSound(target.getLocation(), Sound.ENTITY_PLAYER_ATTACK_STRONG, 100F, 0.1F);
 
                     // Deliver the final blow
-                    LivingEntity t = (LivingEntity)target;
+                    LivingEntity t = (LivingEntity) target;
                     t.setHealth(0);
                 }
             }
         }
     }
-    
+
     public ItemStack getCrescentRose()
     {
         ItemStack NEEDED_A_RWBY_REFERENCE = new ItemStack(Material.DIAMOND_HOE);

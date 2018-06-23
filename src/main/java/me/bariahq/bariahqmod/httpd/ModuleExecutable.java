@@ -1,14 +1,15 @@
 package me.bariahq.bariahqmod.httpd;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.httpd.module.HTTPDModule;
 import me.bariahq.bariahqmod.util.FLog;
 import org.bukkit.Bukkit;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
 @SuppressWarnings("Convert2Lambda")
 public abstract class ModuleExecutable
@@ -21,35 +22,6 @@ public abstract class ModuleExecutable
     {
         this.async = async;
     }
-
-    public NanoHTTPD.Response execute(final NanoHTTPD.HTTPSession session)
-    {
-        try
-        {
-            if (async)
-            {
-                return getResponse(session);
-            }
-
-            // Sync to server thread
-            return Bukkit.getScheduler().callSyncMethod(BariaHQMod.plugin(), new Callable<NanoHTTPD.Response>()
-            {
-                @Override
-                public NanoHTTPD.Response call() throws Exception
-                {
-                    return getResponse(session);
-                }
-            }).get();
-
-        }
-        catch (InterruptedException | ExecutionException ex)
-        {
-            FLog.severe(ex);
-        }
-        return null;
-    }
-
-    public abstract NanoHTTPD.Response getResponse(NanoHTTPD.HTTPSession session);
 
     public static ModuleExecutable forClass(final BariaHQMod plugin, Class<? extends HTTPDModule> clazz, boolean async)
     {
@@ -80,5 +52,34 @@ public abstract class ModuleExecutable
             }
         };
     }
+
+    public NanoHTTPD.Response execute(final NanoHTTPD.HTTPSession session)
+    {
+        try
+        {
+            if (async)
+            {
+                return getResponse(session);
+            }
+
+            // Sync to server thread
+            return Bukkit.getScheduler().callSyncMethod(BariaHQMod.plugin(), new Callable<NanoHTTPD.Response>()
+            {
+                @Override
+                public NanoHTTPD.Response call() throws Exception
+                {
+                    return getResponse(session);
+                }
+            }).get();
+
+        }
+        catch (InterruptedException | ExecutionException ex)
+        {
+            FLog.severe(ex);
+        }
+        return null;
+    }
+
+    public abstract NanoHTTPD.Response getResponse(NanoHTTPD.HTTPSession session);
 
 }

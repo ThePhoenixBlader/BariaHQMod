@@ -108,7 +108,7 @@ public class EssentialsBridge extends FreedomService
         }
         return null;
     }
-    
+
     public String getDisplayName(String username)
     {
         String name = getNickname(username);
@@ -135,7 +135,7 @@ public class EssentialsBridge extends FreedomService
         }
         return 0L;
     }
-    
+
     public void setVanished(String username, boolean vanished)
     {
         try
@@ -151,7 +151,7 @@ public class EssentialsBridge extends FreedomService
             FLog.severe(ex);
         }
     }
-    
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerQuit(PlayerQuitEvent event)
     {

@@ -21,7 +21,7 @@ public class Command_level extends FreedomCommand
             msg("You most specify a player as you are sending this from the console.");
             return true;
         }
-        
+
         if (args.length > 0)
         {
             player = getPlayer(args[0]);
@@ -35,7 +35,7 @@ public class Command_level extends FreedomCommand
         {
             player = playerSender;
         }
-        
+
         Level level = plugin.lvm.getLevel(player);
         msg(player.getName() + " is a " + level.getColoredName(), ChatColor.AQUA);
         return true;

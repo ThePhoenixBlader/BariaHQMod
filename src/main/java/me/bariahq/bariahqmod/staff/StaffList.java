@@ -3,13 +3,9 @@ package me.bariahq.bariahqmod.staff;
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 import lombok.Getter;
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FLog;
@@ -21,6 +17,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.ServicePriority;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class StaffList extends FreedomService
 {
@@ -129,7 +130,7 @@ public class StaffList extends FreedomService
 
         return staffMember != null && staffMember.isActive();
     }
-    
+
     public boolean isAdmin(CommandSender sender)
     {
         StaffMember staffMember = getStaffMember(sender);
@@ -168,7 +169,7 @@ public class StaffList extends FreedomService
         String ip = Ips.getIp(player);
         StaffMember staffMember = getEntryByName(player.getName());
 
-        // Staff member by name
+        // Only check the staff by the name (If online mode, check for the ip and add it as well)
         if (staffMember != null)
         {
             // Check if we're in online mode,
@@ -184,18 +185,6 @@ public class StaffList extends FreedomService
                 }
                 return staffMember;
             }
-
-            // Impostor
-        }
-
-        // Staff member by ip
-        staffMember = getEntryByIp(ip);
-        if (staffMember != null)
-        {
-            // Set the new username
-            staffMember.setName(player.getName());
-            save();
-            updateTables();
         }
 
         return null;

@@ -1,8 +1,11 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.player.FPlayer;
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
+import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -137,7 +140,7 @@ public class Command_stfu extends FreedomCommand
             }
 
             msg("Muted " + player.getName());
-
+            plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.MUTE, reason));
         }
 
         return true;

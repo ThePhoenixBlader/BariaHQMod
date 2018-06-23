@@ -1,10 +1,10 @@
 package me.bariahq.bariahqmod.rank;
 
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.player.FPlayer;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.pravian.aero.util.ChatUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -54,13 +54,13 @@ public class RankManager extends FreedomService
         {
             return Title.TFDEV;
         }
-        
+
         // If a player is a donor and not on the staff list, display that
         if (plugin.dl.isDonator(player) && !plugin.al.isStaffMember(player))
         {
             return Rank.DONATOR;
         }
-        
+
         // UMC Developers
         if (FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
@@ -93,7 +93,7 @@ public class RankManager extends FreedomService
         {
             return rank;
         }
-        
+
         return rank;
     }
 
@@ -178,17 +178,7 @@ public class RankManager extends FreedomService
         boolean isAdmin = plugin.al.isStaffMember(player);
         if (isAdmin)
         {
-            // Verify strict IP match
-            if (!plugin.al.isIdentityMatched(player))
-            {
-                FUtil.bcastMsg("Warning: " + player.getName() + " is an admin, but is using an account not registered to one of their ip-list.", ChatColor.RED);
-                fPlayer.setSuperadminIdVerified(false);
-            }
-            else
-            {
-                fPlayer.setSuperadminIdVerified(true);
-                plugin.al.updateLastLogin(player);
-            }
+            plugin.al.updateLastLogin(player);
         }
 
         // Handle impostors

@@ -1,11 +1,12 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
-import org.bukkit.Location;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 import java.util.Random;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)

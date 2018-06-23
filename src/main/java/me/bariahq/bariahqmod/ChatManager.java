@@ -2,33 +2,34 @@ package me.bariahq.bariahqmod;
 
 import com.google.common.base.Strings;
 import me.bariahq.bariahqmod.player.FPlayer;
+import me.bariahq.bariahqmod.rank.Displayable;
 import me.bariahq.bariahqmod.shop.ShopData;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FSync;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
 import java.util.Arrays;
 import java.util.List;
-import me.bariahq.bariahqmod.rank.Displayable;
-import me.bariahq.bariahqmod.staff.StaffMember;
-import org.bukkit.Sound;
-import org.bukkit.SoundCategory;
 
 public class ChatManager extends FreedomService
 {
-    public static ChatColor scc = ChatColor.AQUA;
-    public static boolean scr = false;
-    public static boolean scn = false;
     // Putting an end to free hosted server advertisements
     public static final List<String> DISGUSTING_HOST_DOMAINS = Arrays.asList("my-serv.com", "mymcserver.org", "serv.gs", "myserver.gs", "g-s.nu", "mcserv.me",
             "mcpro.io", "1337srv.com", "mcnetwork.me", "serv.nu", "mygs.co", "mchosting.pro",
             "server-minecraft.pro", "mcraft.pro", "mcserv.pro", "mchost.pro", "crafted.pro",
             "cubed.pro", "minecraft-crafting.pro", "aternos.me");
+    public static ChatColor scc = ChatColor.AQUA;
+    public static boolean scr = false;
+    public static boolean scn = false;
 
     public ChatManager(BariaHQMod plugin)
     {
@@ -159,7 +160,7 @@ public class ChatManager extends FreedomService
         // Set format
         event.setFormat(format);
     }
-    
+
     public ChatColor getColor(StaffMember staff, Displayable display)
     {
         ChatColor color = display.getColor();
@@ -225,7 +226,7 @@ public class ChatManager extends FreedomService
                     }
                     else
                     {
-                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » "  + cc + message);
+                        player.sendMessage(tag + ChatColor.RESET + ChatColor.DARK_AQUA + name + ChatColor.GRAY + " » " + cc + message);
                     }
                 }
 

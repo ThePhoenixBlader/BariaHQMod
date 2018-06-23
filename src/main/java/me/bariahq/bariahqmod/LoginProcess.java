@@ -1,15 +1,12 @@
 package me.bariahq.bariahqmod;
 
-import java.util.regex.Pattern;
-import java.util.List;
-import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import me.bariahq.bariahqmod.command.FreedomCommand;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.shop.ShopData;
 import me.bariahq.bariahqmod.util.FSync;
 import me.bariahq.bariahqmod.util.FUtil;
-import me.bariahq.bariahqmod.shop.ShopData;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,6 +15,10 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class LoginProcess extends FreedomService
 {
@@ -114,7 +115,7 @@ public class LoginProcess extends FreedomService
                 final int forceIpPort = ConfigEntry.FORCE_IP_PORT.getInteger();
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
                         ConfigEntry.FORCE_IP_KICKMSG.getString()
-                        .replace("%address%", ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == DEFAULT_PORT ? "" : ":" + forceIpPort)));
+                                .replace("%address%", ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == DEFAULT_PORT ? "" : ":" + forceIpPort)));
                 return;
             }
         }
@@ -193,14 +194,14 @@ public class LoginProcess extends FreedomService
     {
         final Player player = event.getPlayer();
         final ShopData sd = plugin.sh.getData(player);
-        
+
         // Op player on join if the player is not opped
         if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isStaffImposter(player))
         {
             player.setOp(true);
             player.sendMessage(FreedomCommand.YOU_ARE_OP);
         }
-        
+
         // Has shop custom login message
         if (!plugin.al.isStaffMember(player) && !plugin.al.isStaffImposter(player) && sd.isCustomLoginMessage() && !sd.getLoginMessage().equalsIgnoreCase("none"))
         {
@@ -221,7 +222,7 @@ public class LoginProcess extends FreedomService
                 {
                     FUtil.playerMsg(player, "Warning: Server is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
                 }
-                
+
                 if (plugin.al.isStaffMember(player) && !ConfigEntry.STAFF_LOGIN_MESSAGE.getList().isEmpty())
                 {
                     List<String> messages = new ArrayList();

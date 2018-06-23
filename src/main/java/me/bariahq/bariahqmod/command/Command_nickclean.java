@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -10,18 +8,21 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Essentials Interface Command - Remove distracting things from nicknames of all players on server.", usage = "/<command>", aliases = "nc")
 public class Command_nickclean extends FreedomCommand
 {
 
     private static final ChatColor[] BLOCKED = new ChatColor[]
-    {
-        ChatColor.MAGIC,
-        ChatColor.STRIKETHROUGH,
-        ChatColor.UNDERLINE,
-        ChatColor.BLACK
-    };
+            {
+                    ChatColor.MAGIC,
+                    ChatColor.STRIKETHROUGH,
+                    ChatColor.UNDERLINE,
+                    ChatColor.BLACK
+            };
     private static final Pattern REGEX = Pattern.compile(ChatColor.COLOR_CHAR + "[" + StringUtils.join(BLOCKED, "") + "]", Pattern.CASE_INSENSITIVE);
 
     @Override

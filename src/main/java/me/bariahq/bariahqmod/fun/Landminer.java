@@ -1,8 +1,5 @@
 package me.bariahq.bariahqmod.fun;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
@@ -16,6 +13,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Landminer extends FreedomService
 {

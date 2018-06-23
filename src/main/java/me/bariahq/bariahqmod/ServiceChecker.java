@@ -1,16 +1,6 @@
 package me.bariahq.bariahqmod;
 
 import com.google.common.collect.Maps;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import lombok.Getter;
 import lombok.Setter;
 import me.bariahq.bariahqmod.config.ConfigEntry;
@@ -22,6 +12,13 @@ import org.bukkit.scheduler.BukkitTask;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class ServiceChecker extends FreedomService
 {
@@ -122,8 +119,7 @@ public class ServiceChecker extends FreedomService
                     final Iterator serviceIt = ((JSONObject) status.next()).entrySet().iterator();
                     while (serviceIt.hasNext())
                     {
-                        @SuppressWarnings("unchecked")
-                        final Entry<String, String> pair = (Entry<String, String>) serviceIt.next();
+                        @SuppressWarnings("unchecked") final Entry<String, String> pair = (Entry<String, String>) serviceIt.next();
 
                         if ("lastcheck".equals(pair.getKey()))
                         {
