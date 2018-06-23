@@ -7,13 +7,13 @@ import org.bukkit.ChatColor;
 public enum Rank implements Displayable
 {
 
-    IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.GREEN),
+    IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.DARK_AQUA),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
-    OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
-    DONATOR("a", "Donator", Type.PLAYER, "Donator", ChatColor.RED),
-    MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
-    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GOLD),
-    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.RED),
+    OP("an", "OP", Type.PLAYER, "OP", ChatColor.DARK_AQUA),
+    DONATOR("a", "Donator", Type.PLAYER, "Donator", ChatColor.GREEN),
+    MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.GOLD),
+    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.RED),
+    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.LIGHT_PURPLE),
     ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
