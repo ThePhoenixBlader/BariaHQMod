@@ -1,19 +1,20 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.List;
-import java.util.ArrayList;
+import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.shop.ShopData;
-import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Open the GUI to set your login message", usage = "/<command>", aliases = "lm")
@@ -64,7 +65,7 @@ public class Command_loginmessage extends FreedomCommand
         is.setItemMeta(m);
         return is;
     }
-    
+
     public ItemStack newLoginMessage(Material mat, String name, ChatColor color, String message, Player player)
     {
         return newLoginMessage(new ItemStack(mat), name, color, message, player);

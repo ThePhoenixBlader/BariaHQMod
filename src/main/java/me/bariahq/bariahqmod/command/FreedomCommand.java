@@ -2,9 +2,9 @@ package me.bariahq.bariahqmod.command;
 
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.player.PlayerData;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.pravian.aero.command.AbstractCommandBase;
@@ -40,6 +40,18 @@ public abstract class FreedomCommand extends AbstractCommandBase<BariaHQMod>
         if (perms == null)
         {
             FLog.warning("Ignoring permissions for command " + getClass().getSimpleName() + ". Command is not annotated!");
+        }
+    }
+
+    public static FreedomCommand getFrom(Command command)
+    {
+        try
+        {
+            return (FreedomCommand) ((FreedomCommandExecutor) (((PluginCommand) command).getExecutor())).getCommandBase();
+        }
+        catch (Exception ex)
+        {
+            return null;
         }
     }
 
@@ -157,17 +169,5 @@ public abstract class FreedomCommand extends AbstractCommandBase<BariaHQMod>
     protected PlayerData getData(Player player)
     {
         return plugin.pl.getData(player);
-    }
-
-    public static FreedomCommand getFrom(Command command)
-    {
-        try
-        {
-            return (FreedomCommand) ((FreedomCommandExecutor) (((PluginCommand) command).getExecutor())).getCommandBase();
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }
     }
 }

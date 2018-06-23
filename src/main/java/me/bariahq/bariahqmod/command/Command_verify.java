@@ -1,17 +1,18 @@
 package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.player.FPlayer;
+import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
-import me.bariahq.bariahqmod.config.ConfigEntry;
+import net.pravian.aero.util.Ips;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
-import java.util.Random;
+
 import java.util.Date;
-import net.pravian.aero.util.Ips;
+import java.util.Random;
 
 @CommandPermissions(level = Rank.IMPOSTOR, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Sends a verification code to the player, or the player can input the sent code.", usage = "/<command> [code]")
@@ -26,21 +27,21 @@ public class Command_verify extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         if (!plugin.al.isStaffImposter(playerSender))
         {
             msg("You are not an imposter, therefore you do not need to verify", ChatColor.RED);
             return true;
         }
-        
+
         StaffMember staffMember = plugin.al.getEntryByName(playerSender.getName());
-        
+
         if (staffMember.getDiscordID() == null)
         {
             msg("You do not have a discord account linked to your minecraft account, please verify the manual way.", ChatColor.RED);
             return true;
         }
-        
+
         if (args.length < 1)
         {
             String code = "";

@@ -4,32 +4,20 @@ import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Projectile;
-import org.bukkit.entity.Tameable;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.event.block.LeavesDecayEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityCombustEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.ExplosionPrimeEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.entity.FireworkExplodeEvent;
-import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Arrow;
-import org.bukkit.GameMode;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
 
 public class EventBlocker extends FreedomService
 {
@@ -178,7 +166,7 @@ public class EventBlocker extends FreedomService
     {
         event.setCancelled(true);
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event)
     {
@@ -197,7 +185,7 @@ public class EventBlocker extends FreedomService
                     FUtil.playerMsg(player, "God mode PvP is not allowed!", ChatColor.RED);
                     event.setCancelled(true);
                 }
-                
+
             }
             if (event.getDamager() instanceof Arrow)
             {
@@ -219,6 +207,7 @@ public class EventBlocker extends FreedomService
             }
         }
     }
+
     @EventHandler(priority = EventPriority.NORMAL)
     public void onOpenBook(PlayerInteractEvent event)
     {
@@ -231,6 +220,7 @@ public class EventBlocker extends FreedomService
             player.sendMessage(ChatColor.GRAY + "For security reasons opening written books has been disabled");
         }
     }
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onFireworkExplode(FireworkExplodeEvent event)
     {

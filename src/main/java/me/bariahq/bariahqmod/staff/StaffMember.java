@@ -1,8 +1,6 @@
 package me.bariahq.bariahqmod.staff;
 
 import com.google.common.collect.Lists;
-import java.util.Date;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import me.bariahq.bariahqmod.rank.Rank;
@@ -16,9 +14,14 @@ import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
+import java.util.Date;
+import java.util.List;
+
 public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
 {
 
+    @Getter
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     private String configKey;
     @Getter
@@ -30,8 +33,6 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private Rank rank = Rank.MOD;
-    @Getter
-    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private Date lastLogin = new Date();
@@ -136,7 +137,7 @@ public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
     {
         return loginMessage != null && !loginMessage.isEmpty();
     }
-    
+
     public boolean hasCustomShoutColor()
     {
         return shoutColor != null && !shoutColor.isEmpty();

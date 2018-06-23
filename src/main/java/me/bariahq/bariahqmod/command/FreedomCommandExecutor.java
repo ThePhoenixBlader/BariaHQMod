@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Arrays;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FLog;
@@ -16,6 +14,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends AbstractCommandExecutor<C>
 {

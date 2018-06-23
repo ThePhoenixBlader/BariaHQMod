@@ -42,7 +42,7 @@ public class ServerPing extends FreedomService
             event.setMotd(ChatColor.RED + "Server is closed.");
             return;
         }
-        
+
         if (LoginProcess.isLockdownEnabled())
         {
             event.setMotd(ChatColor.RED + "Server is on lockdown.");

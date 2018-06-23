@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.banning.Ban;
 import me.bariahq.bariahqmod.player.PlayerData;
 import me.bariahq.bariahqmod.rank.Rank;
@@ -10,6 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Unbans a player", usage = "/<command> <username>")

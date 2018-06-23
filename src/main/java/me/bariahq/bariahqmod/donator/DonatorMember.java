@@ -1,8 +1,6 @@
 package me.bariahq.bariahqmod.donator;
 
 import com.google.common.collect.Lists;
-import java.util.Date;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import me.bariahq.bariahqmod.rank.Rank;
@@ -16,15 +14,18 @@ import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
+import java.util.Date;
+import java.util.List;
+
 public class DonatorMember implements ConfigLoadable, ConfigSavable, Validatable
 {
+    @Getter
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     private String configKey;
     @Getter
     @Setter
     private String name;
-    @Getter
-    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private Date lastLogin = new Date();

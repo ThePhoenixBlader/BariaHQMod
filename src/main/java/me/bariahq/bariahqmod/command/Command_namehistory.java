@@ -1,20 +1,21 @@
 package me.bariahq.bariahqmod.command;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.List;
-import java.util.ArrayList;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FLog;
-import me.bariahq.bariahqmod.util.FUtil;
 import me.bariahq.bariahqmod.util.FSync;
+import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Gets the name history of a user", usage = "/<command> <username>", aliases = "nh")
@@ -42,9 +43,9 @@ public class Command_namehistory extends FreedomCommand
         }
 
         final CommandSender commandSender = sender;
-        
+
         msg("Fetching name history for " + name, ChatColor.GREEN);
-        
+
         new BukkitRunnable()
         {
             @Override
@@ -81,7 +82,8 @@ public class Command_namehistory extends FreedomCommand
                             for (String name : lines)
                             {
                                 FSync.playerMsg(commandSender, FUtil.colorize(name));
-                            }   break;
+                            }
+                            break;
                     }
 
                 }

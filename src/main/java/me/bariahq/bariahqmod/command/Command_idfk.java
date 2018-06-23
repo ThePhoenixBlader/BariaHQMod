@@ -5,20 +5,21 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
+
 import java.util.Random;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "i dont fucking know, what even", usage = "thot if you dont know what this does then dont use it")
 public class Command_idfk extends FreedomCommand
 {
-    
+
     public static final String[] DRUNK_LINES = new String[]{"i is thy best bitch in teh world xD xD xD",
             "ooga boga ooga boga ooga boga ooga boga", "jake u dog fukr", "nero is a nice black pussy",
             "robin has a perfect penis", "ABABABABABABABABABA ABAOBOABOBA", "agge is a fuckin egg",
             "explosive errors == explosive arrows", "sync; echo 3 > /proc/sys/vm/drop_caches", "yeet",
             "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:", "diabeetus", "McDiabeto", "oh",
             "say heck to diabetes im having chocolate cake"};
-    
+
     private static final Random random = new Random();
 
     @Override
@@ -28,7 +29,7 @@ public class Command_idfk extends FreedomCommand
         {
             return false;
         }
-        
+
         switch (args[0])
         {
             case "killmepls":

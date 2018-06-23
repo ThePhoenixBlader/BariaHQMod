@@ -1,19 +1,19 @@
 package me.bariahq.bariahqmod.discord;
 
-import me.bariahq.bariahqmod.util.FLog;
-import me.bariahq.bariahqmod.staff.StaffMember;
+import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.staff.StaffMember;
+import me.bariahq.bariahqmod.util.FLog;
+import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.AccountType;
 
+import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
-import javax.security.auth.login.LoginException;
-import me.bariahq.bariahqmod.FreedomService;
-import me.bariahq.bariahqmod.BariaHQMod;
 
 public class Discord extends FreedomService
 {
@@ -27,8 +27,25 @@ public class Discord extends FreedomService
         super(plugin);
     }
 
-     public void startBot()
-     {
+    public static void sendMessage(MessageChannel channel, String message)
+    {
+        channel.sendMessage(message);
+    }
+
+    public static String getCodeForAdmin(StaffMember staffMember)
+    {
+        for (String code : LINK_CODES.keySet())
+        {
+            if (LINK_CODES.get(code).equals(staffMember))
+            {
+                return code;
+            }
+        }
+        return null;
+    }
+
+    public void startBot()
+    {
         if (ConfigEntry.DISCORD_VERIFICATION_ENABLED.getBoolean())
         {
             if (!ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString().isEmpty())
@@ -44,7 +61,7 @@ public class Discord extends FreedomService
         {
             for (Object o : bot.getRegisteredListeners())
             {
-               bot.removeEventListener(o);
+                bot.removeEventListener(o);
             }
         }
         try
@@ -69,23 +86,6 @@ public class Discord extends FreedomService
     protected void onStart()
     {
         startBot();
-    }
-    
-    public static void sendMessage(MessageChannel channel, String message)
-    {
-        channel.sendMessage(message);
-    }
-    
-    public static String getCodeForAdmin(StaffMember staffMember)
-    {
-        for (String code: LINK_CODES.keySet())
-        {
-            if (LINK_CODES.get(code).equals(staffMember))
-            {
-                return code;
-            }
-        }
-        return null;
     }
 
     @Override

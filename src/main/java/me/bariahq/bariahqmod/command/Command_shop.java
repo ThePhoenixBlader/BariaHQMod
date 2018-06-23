@@ -1,19 +1,20 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.List;
-import java.util.ArrayList;
+import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.shop.ShopData;
-import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Open the shop GUI", usage = "/<command>", aliases = "sh")
@@ -25,7 +26,7 @@ public class Command_shop extends FreedomCommand
     public final int crescentRosePrice = ConfigEntry.SHOP_CRESCENT_ROSE_PRICE.getInteger();
     public final int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
     public int coins;
-    
+
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -35,7 +36,7 @@ public class Command_shop extends FreedomCommand
             msg("The shop is currently disabled!", ChatColor.RED);
             return true;
         }
-        
+
         ShopData sd = plugin.sh.getData(playerSender);
         coins = sd.getCoins();
         Boolean hasColoredChat = sd.isColoredchat();
@@ -68,10 +69,11 @@ public class Command_shop extends FreedomCommand
         m.setDisplayName(FUtil.colorize("&c&lYou have &e&l" + sd.getCoins() + "&c&l coins"));
         coins.setItemMeta(m);
         i.setItem(35, coins);
-        
+
         playerSender.openInventory(i);
         return true;
     }
+
     public boolean canOfford(int p, int c)
     {
         if (c >= p)
@@ -83,7 +85,7 @@ public class Command_shop extends FreedomCommand
             return false;
         }
     }
-    
+
     public int amountNeeded(int p)
     {
         return p - coins;
@@ -96,7 +98,7 @@ public class Command_shop extends FreedomCommand
         Boolean co = canOfford(price, coins);
         List<String> l = new ArrayList();
         if (!purchased)
-            {
+        {
             l.add(ChatColor.GOLD + "Price: " + (co ? ChatColor.DARK_GREEN : ChatColor.RED) + price);
             if (!co)
             {

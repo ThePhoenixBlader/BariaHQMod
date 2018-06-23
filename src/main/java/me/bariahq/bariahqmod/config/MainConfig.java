@@ -1,18 +1,18 @@
 package me.bariahq.bariahqmod.config;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.EnumMap;
-import java.util.List;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.util.FLog;
 import net.pravian.aero.component.PluginComponent;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.EnumMap;
+import java.util.List;
 
 public class MainConfig extends PluginComponent<BariaHQMod>
 {
@@ -200,7 +200,7 @@ public class MainConfig extends PluginComponent<BariaHQMod>
             FLog.severe(ex);
         }
     }
-    
+
     public List getList(ConfigEntry entry)
     {
         try

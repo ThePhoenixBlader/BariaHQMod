@@ -1,40 +1,25 @@
 package me.bariahq.bariahqmod;
 
-import me.bariahq.bariahqmod.fun.Trailer;
-import java.io.File;
-import me.bariahq.bariahqmod.staff.StaffList;
 import me.bariahq.bariahqmod.banning.BanManager;
 import me.bariahq.bariahqmod.banning.PermbanList;
-import me.bariahq.bariahqmod.blocking.BlockBlocker;
-import me.bariahq.bariahqmod.blocking.DisguiseBlocker;
-import me.bariahq.bariahqmod.blocking.EventBlocker;
-import me.bariahq.bariahqmod.blocking.InteractBlocker;
-import me.bariahq.bariahqmod.blocking.MobBlocker;
-import me.bariahq.bariahqmod.blocking.PotionBlocker;
+import me.bariahq.bariahqmod.blocking.*;
 import me.bariahq.bariahqmod.blocking.command.CommandBlocker;
-import me.bariahq.bariahqmod.bridge.BukkitTelnetBridge;
-import me.bariahq.bariahqmod.bridge.CoreProtectBridge;
-import me.bariahq.bariahqmod.bridge.EssentialsBridge;
-import me.bariahq.bariahqmod.bridge.LibsDisguisesBridge;
-import me.bariahq.bariahqmod.bridge.WorldEditBridge;
+import me.bariahq.bariahqmod.bridge.*;
 import me.bariahq.bariahqmod.caging.Cager;
 import me.bariahq.bariahqmod.command.CommandLoader;
 import me.bariahq.bariahqmod.config.MainConfig;
 import me.bariahq.bariahqmod.discord.Discord;
+import me.bariahq.bariahqmod.donator.DonatorList;
 import me.bariahq.bariahqmod.freeze.Freezer;
-import me.bariahq.bariahqmod.fun.ItemFun;
-import me.bariahq.bariahqmod.fun.Jumppads;
-import me.bariahq.bariahqmod.fun.Landminer;
-import me.bariahq.bariahqmod.fun.Lightning;
-import me.bariahq.bariahqmod.fun.CrescentRose;
-import me.bariahq.bariahqmod.fun.MP44;
-import me.bariahq.bariahqmod.fun.Minigun;
+import me.bariahq.bariahqmod.fun.*;
 import me.bariahq.bariahqmod.httpd.HTTPDaemon;
 import me.bariahq.bariahqmod.leveling.LevelManager;
 import me.bariahq.bariahqmod.player.PlayerList;
+import me.bariahq.bariahqmod.punishment.PunishmentList;
 import me.bariahq.bariahqmod.rank.RankManager;
 import me.bariahq.bariahqmod.shop.Shop;
 import me.bariahq.bariahqmod.shop.ShopGUIListener;
+import me.bariahq.bariahqmod.staff.StaffList;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
 import me.bariahq.bariahqmod.util.MethodTimer;
@@ -44,9 +29,10 @@ import net.pravian.aero.plugin.AeroPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.io.File;
 import java.io.InputStream;
 import java.util.Properties;
-import me.bariahq.bariahqmod.donator.DonatorList;
 
 
 public class BariaHQMod extends AeroPlugin<BariaHQMod>
@@ -54,10 +40,10 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
 
     public static final String CONFIG_FILENAME = "config.yml";
     //
+    public static final BuildProperties build = new BuildProperties();
+    //
     public static String pluginName;
     public static String pluginVersion;
-    //
-    public static final BuildProperties build = new BuildProperties();
     //
     public MainConfig config;
     //
@@ -113,6 +99,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
     public CrescentRose cr;
     public LevelManager lvm;
     public DonatorList dl;
+    public PunishmentList pul;
     //
     // Bridges
     public ServiceManager<BariaHQMod> bridges;
@@ -121,6 +108,18 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
     public EssentialsBridge esb;
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
+
+    public static BariaHQMod plugin()
+    {
+        for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
+        {
+            if (plugin.getName().equalsIgnoreCase(pluginName))
+            {
+                return (BariaHQMod) plugin;
+            }
+        }
+        return null;
+    }
 
     @Override
     public void load()
@@ -197,6 +196,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         pa = services.registerService(ProtectArea.class);
         sc = services.registerService(ServiceChecker.class);
         gr = services.registerService(GameRuleHandler.class);
+        pul = services.registerService(PunishmentList.class);
 
         // Single admin utils
         cs = services.registerService(CommandSpy.class);
@@ -258,18 +258,6 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         server.getScheduler().cancelTasks(plugin);
 
         FLog.info("Plugin disabled");
-    }
-
-    public static BariaHQMod plugin()
-    {
-        for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
-        {
-            if (plugin.getName().equalsIgnoreCase(pluginName))
-            {
-                return (BariaHQMod) plugin;
-            }
-        }
-        return null;
     }
 
     public static class BuildProperties

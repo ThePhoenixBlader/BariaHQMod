@@ -1,5 +1,14 @@
 package me.bariahq.bariahqmod.httpd;
 
+import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
+import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.httpd.NanoHTTPD.Response;
+import me.bariahq.bariahqmod.httpd.module.*;
+import me.bariahq.bariahqmod.util.FLog;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,35 +16,53 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import me.bariahq.bariahqmod.FreedomService;
-import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.config.ConfigEntry;
-import me.bariahq.bariahqmod.httpd.NanoHTTPD.Response;
-import me.bariahq.bariahqmod.httpd.module.HTTPDModule;
-import me.bariahq.bariahqmod.httpd.module.Module_dump;
-import me.bariahq.bariahqmod.httpd.module.Module_file;
-import me.bariahq.bariahqmod.httpd.module.Module_help;
-import me.bariahq.bariahqmod.httpd.module.Module_list;
-import me.bariahq.bariahqmod.httpd.module.Module_permbans;
-import me.bariahq.bariahqmod.httpd.module.Module_players;
-import me.bariahq.bariahqmod.httpd.module.Module_schematic;
-import me.bariahq.bariahqmod.util.FLog;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public class HTTPDaemon extends FreedomService
 {
 
-    public static String MIME_DEFAULT_BINARY = "application/octet-stream";
     private static final Pattern EXT_REGEX = Pattern.compile("\\.([^\\.\\s]+)$");
+    public static String MIME_DEFAULT_BINARY = "application/octet-stream";
     //
     public int port;
-    private HTTPD httpd;
     public Map<String, ModuleExecutable> modules = new HashMap<>();
+    private HTTPD httpd;
 
     public HTTPDaemon(BariaHQMod plugin)
     {
         super(plugin);
+    }
+
+    public static Response serveFileBasic(File file)
+    {
+        Response response = null;
+
+        if (file != null && file.exists())
+        {
+            try
+            {
+                String mimetype = null;
+
+                Matcher matcher = EXT_REGEX.matcher(file.getCanonicalPath());
+                if (matcher.find())
+                {
+                    mimetype = Module_file.MIME_TYPES.get(matcher.group(1));
+                }
+
+                if (mimetype == null || mimetype.trim().isEmpty())
+                {
+                    mimetype = MIME_DEFAULT_BINARY;
+                }
+
+                response = new Response(Response.Status.OK, mimetype, new FileInputStream(file));
+                response.addHeader("Content-Length", "" + file.length());
+            }
+            catch (IOException ex)
+            {
+                FLog.severe(ex);
+            }
+        }
+
+        return response;
     }
 
     @Override
@@ -135,39 +162,6 @@ public class HTTPDaemon extends FreedomService
                 return new Response(Response.Status.INTERNAL_ERROR, MIME_PLAINTEXT, "Error 500: Internal Server Error\r\n" + ex.getMessage() + "\r\n" + ExceptionUtils.getStackTrace(ex));
             }
         }
-    }
-
-    public static Response serveFileBasic(File file)
-    {
-        Response response = null;
-
-        if (file != null && file.exists())
-        {
-            try
-            {
-                String mimetype = null;
-
-                Matcher matcher = EXT_REGEX.matcher(file.getCanonicalPath());
-                if (matcher.find())
-                {
-                    mimetype = Module_file.MIME_TYPES.get(matcher.group(1));
-                }
-
-                if (mimetype == null || mimetype.trim().isEmpty())
-                {
-                    mimetype = MIME_DEFAULT_BINARY;
-                }
-
-                response = new Response(Response.Status.OK, mimetype, new FileInputStream(file));
-                response.addHeader("Content-Length", "" + file.length());
-            }
-            catch (IOException ex)
-            {
-                FLog.severe(ex);
-            }
-        }
-
-        return response;
     }
 
 }

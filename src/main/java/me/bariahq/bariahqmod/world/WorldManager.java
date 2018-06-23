@@ -1,7 +1,7 @@
 package me.bariahq.bariahqmod.world;
 
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.util.FUtil;

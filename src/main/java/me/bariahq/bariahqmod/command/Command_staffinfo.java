@@ -1,7 +1,7 @@
 package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.rank.Rank;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

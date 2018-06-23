@@ -1,31 +1,7 @@
 package me.bariahq.bariahqmod.util;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.lang.reflect.Field;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.config.ConfigEntry;
-import me.bariahq.bariahqmod.donator.DonatorMember;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
@@ -36,18 +12,24 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.io.*;
+import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @SuppressWarnings("Convert2Lambda")
 public class FUtil
 {
 
-    private static final Random RANDOM = new Random();
     //
     public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     // Leave the TFDEVS List alone, those are the TotalFreedom Developers.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ", "OxLemonxO", "ZeroEpoch1969", "Mafrans");
     public static final List<String> BHQDEVS = Arrays.asList("ZeroEpoch1969", "OkLemonxO", "_Fleek_", "Super_");
-    public static String DATE_STORAGE_FORMAT = "EEE, MMM d yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
             ChatColor.DARK_BLUE,
@@ -62,6 +44,8 @@ public class FUtil
             ChatColor.RED,
             ChatColor.LIGHT_PURPLE,
             ChatColor.YELLOW);
+    private static final Random RANDOM = new Random();
+    public static String DATE_STORAGE_FORMAT = "EEE, MMM d yyyy HH:mm:ss Z";
 
     static
     {
@@ -131,7 +115,7 @@ public class FUtil
 
     public static void staffAction(String adminName, String action, boolean isRed)
     {
-        FUtil.bcastMsg(adminName + " " + Character.toString((char)0x00BB) + " " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
+        FUtil.bcastMsg(adminName + " " + Character.toString((char) 0x00BB) + " " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
 
     public static String formatLocation(Location location)
@@ -192,12 +176,12 @@ public class FUtil
     {
         Pattern timePattern = Pattern.compile(
                 "(?:([0-9]+)\\s*y[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
+                        + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?"
+                        + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?"
+                        + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
+                        + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?"
+                        + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?"
+                        + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
         Matcher m = timePattern.matcher(time);
         int years = 0;
         int months = 0;
@@ -391,7 +375,8 @@ public class FUtil
             catch (NoSuchFieldException | IllegalAccessException ex)
             {
             }
-        } while (checkClass.getSuperclass() != Object.class
+        }
+        while (checkClass.getSuperclass() != Object.class
                 && ((checkClass = checkClass.getSuperclass()) != null));
 
         return null;

@@ -1,10 +1,5 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.io.IOException;
-import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.httpd.HTTPDPageBuilder;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
@@ -13,6 +8,11 @@ import me.bariahq.bariahqmod.httpd.NanoHTTPD.Method;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD.Response;
 import me.bariahq.bariahqmod.util.FLog;
 import net.pravian.aero.component.PluginComponent;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class HTTPDModule extends PluginComponent<BariaHQMod>
 {

@@ -1,7 +1,7 @@
 package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

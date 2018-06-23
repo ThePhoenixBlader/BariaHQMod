@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(
@@ -160,9 +161,9 @@ public class Command_potion extends FreedomCommand
                 target.addPotionEffect(new_effect, true);
                 msg(
                         "Added potion effect: " + new_effect.getType().getName()
-                        + ", Duration: " + new_effect.getDuration()
-                        + ", Amplifier: " + new_effect.getAmplifier()
-                        + (!target.equals(playerSender) ? " to player " + target.getName() + "." : " to yourself."), ChatColor.AQUA);
+                                + ", Duration: " + new_effect.getDuration()
+                                + ", Amplifier: " + new_effect.getAmplifier()
+                                + (!target.equals(playerSender) ? " to player " + target.getName() + "." : " to yourself."), ChatColor.AQUA);
 
                 return true;
             }

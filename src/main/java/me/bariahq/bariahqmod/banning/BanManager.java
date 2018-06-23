@@ -2,14 +2,6 @@ package me.bariahq.bariahqmod.banning;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.player.PlayerData;
@@ -23,6 +15,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
+
+import java.util.*;
 
 public class BanManager extends FreedomService
 {
@@ -268,7 +262,7 @@ public class BanManager extends FreedomService
     private void updateViews()
     {
         // Remove expired bans
-        for (Iterator<Ban> it = bans.iterator(); it.hasNext();)
+        for (Iterator<Ban> it = bans.iterator(); it.hasNext(); )
         {
             if (it.next().isExpired())
             {
@@ -294,7 +288,7 @@ public class BanManager extends FreedomService
             }
         }
     }
-    
+
     public void eject(Player player, String reason)
     {
         Ban ban = Ban.forPlayerName(player.getName(), null, null, ChatColor.RED + reason);

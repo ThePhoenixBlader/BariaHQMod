@@ -1,10 +1,9 @@
 package me.bariahq.bariahqmod.banning;
 
 import com.google.common.collect.Sets;
-import java.util.Set;
 import lombok.Getter;
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
@@ -14,6 +13,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerLoginEvent;
+
+import java.util.Set;
 
 public class PermbanList extends FreedomService
 {
@@ -66,8 +67,8 @@ public class PermbanList extends FreedomService
             {
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
                         ChatColor.RED + "Your IP address is permanently banned from this server.\n"
-                        + "Release procedures are available at\n"
-                        + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+                                + "Release procedures are available at\n"
+                                + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
                 return;
             }
         }
@@ -79,8 +80,8 @@ public class PermbanList extends FreedomService
             {
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
                         ChatColor.RED + "Your username is permanently banned from this server.\n"
-                        + "Release procedures are available at\n"
-                        + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+                                + "Release procedures are available at\n"
+                                + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
                 return;
             }
         }

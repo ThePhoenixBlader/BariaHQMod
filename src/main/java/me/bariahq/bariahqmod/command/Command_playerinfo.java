@@ -1,14 +1,14 @@
 package me.bariahq.bariahqmod.command;
 
+import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.shop.ShopData;
+import me.bariahq.bariahqmod.util.FUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import me.bariahq.bariahqmod.player.FPlayer;
-import me.bariahq.bariahqmod.shop.ShopData;
-import me.bariahq.bariahqmod.util.FUtil;
-import org.apache.commons.lang3.StringUtils;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Get info on a player.", usage = "/<command> <name>", aliases = "pi")

@@ -1,9 +1,12 @@
 package me.bariahq.bariahqmod.command;
 
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.banning.Ban;
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
+import net.pravian.aero.util.Ips;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -75,6 +78,9 @@ public class Command_doom extends FreedomCommand
 
         // Shoot the player in the sky
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
+
+        // Log doom
+        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.DOOM, null));
 
         new BukkitRunnable()
         {

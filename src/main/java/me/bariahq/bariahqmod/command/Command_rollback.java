@@ -1,11 +1,11 @@
 package me.bariahq.bariahqmod.command;
 
+import me.bariahq.bariahqmod.player.PlayerData;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
-import me.bariahq.bariahqmod.player.PlayerData;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
@@ -24,10 +24,10 @@ public class Command_rollback extends FreedomCommand
         {
             return false;
         }
-        
+
         final Player player;
         String playerName;
-        
+
         if (args.length == 2 && args[0].equalsIgnoreCase("undo"))
         {
             playerName = args[1];
@@ -36,9 +36,9 @@ public class Command_rollback extends FreedomCommand
         {
             playerName = args[0];
         }
-        
+
         player = getPlayer(playerName);
-        
+
         if (player != null)
         {
             playerName = player.getName();

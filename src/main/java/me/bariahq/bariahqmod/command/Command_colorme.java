@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Iterator;
-import java.util.Map;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Iterator;
+import java.util.Map;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Essentials Interface Command - Color your current nickname.", usage = "/<command> <color>")

@@ -19,7 +19,7 @@ public class Command_denick extends FreedomCommand
         {
             includeStaff = true;
         }
-    
+
         FUtil.staffAction(sender.getName(), "Removing nicknames for all " + (includeStaff ? "players" : "non-staff"), false);
 
         for (Player player : server.getOnlinePlayers())

@@ -87,7 +87,7 @@ public class Command_toggle extends FreedomCommand
             toggle("Automatic entity wiping is", ConfigEntry.AUTO_ENTITY_WIPE);
             return true;
         }
-        
+
         if (args[0].equals("fireworks"))
         {
             toggle("Firework explosions are", ConfigEntry.ALLOW_FIREWORK_EXPLOSIONS);

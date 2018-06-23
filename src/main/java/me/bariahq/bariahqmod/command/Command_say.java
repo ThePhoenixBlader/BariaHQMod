@@ -40,9 +40,9 @@ public class Command_say extends FreedomCommand
                 return true;
             }
         }
-        
+
         String color = "&d";
-        
+
         if (!senderIsConsole)
         {
             StaffMember staffMember = plugin.al.getStaffMember(playerSender);
@@ -51,7 +51,7 @@ public class Command_say extends FreedomCommand
                 color = staffMember.getShoutColor();
             }
         }
-        
+
         FUtil.bcastMsg(String.format("%s[Staff:%s] %s", FUtil.colorize(color), sender.getName(), message));
 
         return true;

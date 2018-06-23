@@ -1,9 +1,6 @@
 package me.bariahq.bariahqmod.shop;
 
 import com.google.common.collect.Maps;
-import java.io.File;
-import java.util.Collection;
-import java.util.Map;
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
@@ -19,6 +16,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.io.File;
+import java.util.Collection;
+import java.util.Map;
 
 public class Shop extends FreedomService
 {
@@ -49,7 +50,7 @@ public class Shop extends FreedomService
             save(sd);
         }
     }
-    
+
     public void save(ShopData data)
     {
         YamlConfig config = getConfig(data);
@@ -68,7 +69,7 @@ public class Shop extends FreedomService
 
         return (entry == null ? null : entry.getIps().iterator().next());
     }
-    
+
     public String getShopPrefix()
     {
         return FUtil.colorize(ConfigEntry.SHOP_PREFIX.getString() + " ");
@@ -96,7 +97,7 @@ public class Shop extends FreedomService
             final long unix = FUtil.getUnixTime();
             data = new ShopData(player);
             data.addIp(Ips.getIp(player));
-            
+
             // Set defaults
             data.setCoins(0);
             data.setColoredchat(false);

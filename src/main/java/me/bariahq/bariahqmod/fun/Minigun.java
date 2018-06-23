@@ -4,20 +4,21 @@ import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.shop.ShopData;
 import me.bariahq.bariahqmod.util.FUtil;
-import java.util.List;
-import java.util.ArrayList;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.Sound;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.block.Action;
-import org.bukkit.entity.Arrow;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.ChatColor;
-import org.bukkit.enchantments.Enchantment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Minigun extends FreedomService
 {
@@ -37,8 +38,8 @@ public class Minigun extends FreedomService
     protected void onStop()
     {
     }
-    
-    
+
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerRightClick(PlayerInteractEvent event)
     {
@@ -55,7 +56,7 @@ public class Minigun extends FreedomService
             }
         }
     }
-    
+
     public ItemStack getMinigun()
     {
         ItemStack minigun = new ItemStack(Material.IRON_BARDING);

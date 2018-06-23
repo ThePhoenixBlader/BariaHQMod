@@ -1,8 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.text.DecimalFormat;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FLog;
@@ -13,6 +10,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+
+import java.text.DecimalFormat;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "View ticks-per-second", usage = "/<command>")

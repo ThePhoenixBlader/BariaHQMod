@@ -1,9 +1,6 @@
 package me.bariahq.bariahqmod.player;
 
 import com.google.common.collect.Maps;
-import java.io.File;
-import java.util.Collection;
-import java.util.Map;
 import lombok.Getter;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
@@ -17,6 +14,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.io.File;
+import java.util.Collection;
+import java.util.Map;
 
 public class PlayerList extends FreedomService
 {

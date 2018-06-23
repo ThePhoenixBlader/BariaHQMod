@@ -1,9 +1,8 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Date;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FUtil;
 import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +10,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Date;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Manage staff.", usage = "/<command> <list | clean | reload | | setrank <username> <rank> | <add | remove | info> <username>>")
@@ -76,7 +77,7 @@ public class Command_saconfig extends FreedomCommand
                     msg("Rank must be Mod or higher.", ChatColor.RED);
                     return true;
                 }
-                
+
                 if (rank.equals(Rank.ADMIN_CONSOLE) || rank.equals(Rank.SENIOR_CONSOLE))
                 {
                     msg("You can not use the " + rank.getName() + " rank", ChatColor.RED);

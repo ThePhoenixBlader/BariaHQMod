@@ -32,7 +32,7 @@ public class Command_manageshop extends FreedomCommand
             if (args[0].equalsIgnoreCase("coins"))
             {
                 if (getPlayer(args[3]) != null || args[3].equals("all"))
-                {   
+                {
                     Player p = null;
                     ShopData sd = null;
                     if (!args[3].equals("all"))

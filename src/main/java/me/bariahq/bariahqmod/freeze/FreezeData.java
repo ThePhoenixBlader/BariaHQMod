@@ -3,7 +3,6 @@ package me.bariahq.bariahqmod.freeze;
 import lombok.Getter;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.player.FPlayer;
-import static me.bariahq.bariahqmod.player.FPlayer.AUTO_PURGE_TICKS;
 import me.bariahq.bariahqmod.util.FLog;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.GameMode;
@@ -11,6 +10,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+
+import static me.bariahq.bariahqmod.player.FPlayer.AUTO_PURGE_TICKS;
 
 public class FreezeData
 {

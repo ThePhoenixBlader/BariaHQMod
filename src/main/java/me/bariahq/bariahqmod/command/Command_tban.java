@@ -1,9 +1,12 @@
 package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.banning.Ban;
+import me.bariahq.bariahqmod.config.ConfigEntry;
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
-import me.bariahq.bariahqmod.config.ConfigEntry;
+import net.pravian.aero.util.Ips;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -56,7 +59,8 @@ public class Command_tban extends FreedomCommand
         FUtil.staffAction(sender.getName(), "Tempbanning: " + player.getName() + " for 5 minutes.", true);
         plugin.bm.addBan(Ban.forPlayer(player, sender, FUtil.parseDateOffset("5m"), reason));
 
-        player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read " + ConfigEntry.SERVER_BAN_URL.getString() +  " for more info.");
+        player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read " + ConfigEntry.SERVER_BAN_URL.getString() + " for more info.");
+        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.TEMPBAN, reason));
 
         return true;
     }

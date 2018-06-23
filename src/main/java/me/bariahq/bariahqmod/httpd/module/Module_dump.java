@@ -1,23 +1,25 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
 import me.bariahq.bariahqmod.BariaHQMod;
-import static me.bariahq.bariahqmod.httpd.HTMLGenerationTools.paragraph;
 import me.bariahq.bariahqmod.httpd.HTTPDaemon;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
 import me.bariahq.bariahqmod.util.FLog;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+
 import static me.bariahq.bariahqmod.httpd.HTMLGenerationTools.list;
+import static me.bariahq.bariahqmod.httpd.HTMLGenerationTools.paragraph;
 
 public class Module_dump extends HTTPDModule
 {
 
-    private File echoFile = null;
     private final String body;
+    private File echoFile = null;
 
     public Module_dump(BariaHQMod plugin, NanoHTTPD.HTTPSession session)
     {

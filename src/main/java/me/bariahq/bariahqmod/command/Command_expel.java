@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +8,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Push people away from you.", usage = "/<command> [radius] [strength]")

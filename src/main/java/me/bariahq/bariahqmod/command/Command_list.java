@@ -1,7 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.rank.Displayable;
 import me.bariahq.bariahqmod.rank.Rank;
@@ -12,19 +10,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @CommandPermissions(level = Rank.IMPOSTOR, source = SourceType.BOTH)
 @CommandParameters(description = "Lists the real names of all online players.", usage = "/<command> [-s | -i | -f]", aliases = "who")
 public class Command_list extends FreedomCommand
 {
-
-    private static enum ListFilter
-    {
-
-        PLAYERS,
-        STAFF,
-        FAMOUS_PLAYERS,
-        IMPOSTORS;
-    }
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -116,5 +108,14 @@ public class Command_list extends FreedomCommand
         }
 
         return true;
+    }
+
+    private static enum ListFilter
+    {
+
+        PLAYERS,
+        STAFF,
+        FAMOUS_PLAYERS,
+        IMPOSTORS;
     }
 }

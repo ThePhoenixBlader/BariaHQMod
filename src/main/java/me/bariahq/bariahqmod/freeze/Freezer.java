@@ -1,8 +1,8 @@
 package me.bariahq.bariahqmod.freeze;
 
 import lombok.Getter;
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

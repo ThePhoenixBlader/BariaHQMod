@@ -1,32 +1,11 @@
 package me.bariahq.bariahqmod;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.BlockState;
-import org.bukkit.entity.AreaEffectCloud;
-import org.bukkit.entity.Boat;
-import org.bukkit.entity.EnderCrystal;
-import org.bukkit.entity.EnderSignal;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.ExperienceOrb;
-import org.bukkit.entity.Explosive;
-import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.Firework;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Minecart;
-import org.bukkit.entity.Projectile;
-import org.bukkit.entity.ThrownExpBottle;
-import org.bukkit.entity.ThrownPotion;
-import org.bukkit.entity.Egg;
-import org.bukkit.entity.Snowball;
-import org.bukkit.entity.Fireball;
-import org.bukkit.entity.DragonFireball;
-import org.bukkit.entity.LargeFireball;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -35,6 +14,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class EntityWiper extends FreedomService
 {

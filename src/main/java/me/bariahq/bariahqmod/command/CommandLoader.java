@@ -9,10 +9,9 @@ import org.bukkit.ChatColor;
 
 public class CommandLoader extends FreedomService
 {
-    public int totalCommands;
-
     @Getter
     private final SimpleCommandHandler<BariaHQMod> handler;
+    public int totalCommands;
 
     public CommandLoader(BariaHQMod plugin)
     {

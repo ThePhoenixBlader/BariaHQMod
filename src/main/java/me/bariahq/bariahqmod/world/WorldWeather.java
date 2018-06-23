@@ -1,9 +1,10 @@
 package me.bariahq.bariahqmod.world;
 
-import java.util.Arrays;
-import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.World;
+
+import java.util.Arrays;
+import java.util.List;
 
 public enum WorldWeather
 {
@@ -19,15 +20,6 @@ public enum WorldWeather
         this.aliases = Arrays.asList(StringUtils.split(aliases, ","));
     }
 
-    public void setWorldToWeather(World world)
-    {
-        world.setStorm(this == RAIN || this == STORM);
-        world.setWeatherDuration(this == RAIN || this == STORM ? 20 * 60 * 5 : 0);
-
-        world.setThundering(this == STORM);
-        world.setThunderDuration(this == STORM ? 20 * 60 * 5 : 0);
-    }
-
     public static WorldWeather getByAlias(String needle)
     {
         needle = needle.toLowerCase();
@@ -39,5 +31,14 @@ public enum WorldWeather
             }
         }
         return null;
+    }
+
+    public void setWorldToWeather(World world)
+    {
+        world.setStorm(this == RAIN || this == STORM);
+        world.setWeatherDuration(this == RAIN || this == STORM ? 20 * 60 * 5 : 0);
+
+        world.setThundering(this == STORM);
+        world.setThunderDuration(this == STORM ? 20 * 60 * 5 : 0);
     }
 }

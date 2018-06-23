@@ -1,12 +1,12 @@
 package me.bariahq.bariahqmod.command;
 
-import org.bukkit.World;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Take a selfie or throw the camera!", usage = "/<command> <selfie | throw>", aliases = "cam")

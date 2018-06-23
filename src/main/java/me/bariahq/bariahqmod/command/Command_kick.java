@@ -1,7 +1,10 @@
 package me.bariahq.bariahqmod.command;
 
+import me.bariahq.bariahqmod.punishment.Punishment;
+import me.bariahq.bariahqmod.punishment.PunishmentType;
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
+import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -49,6 +52,7 @@ public class Command_kick extends FreedomCommand
         }
 
         player.kickPlayer(builder.toString());
+        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.KICK, reason));
         return true;
     }
 

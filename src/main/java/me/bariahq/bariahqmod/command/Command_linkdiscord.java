@@ -2,10 +2,11 @@ package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.staff.StaffMember;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
+
 import java.util.Random;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
@@ -21,14 +22,14 @@ public class Command_linkdiscord extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         StaffMember staffMember = plugin.al.getStaffMember(playerSender);
         if (staffMember.getDiscordID() != null)
         {
             msg("Your minecraft account is already linked to a discord account", ChatColor.RED);
             return true;
         }
-        
+
         if (plugin.dc.LINK_CODES.containsValue(staffMember))
         {
             msg("Your linking code is " + ChatColor.GREEN + plugin.dc.getCodeForAdmin(staffMember), ChatColor.AQUA);
@@ -37,7 +38,7 @@ public class Command_linkdiscord extends FreedomCommand
         {
             String code = "";
             Random random = new Random();
-            for (int i = 0; i < 5; i++)   
+            for (int i = 0; i < 5; i++)
             {
                 code += random.nextInt(10);
             }

@@ -1,7 +1,7 @@
 package me.bariahq.bariahqmod.caging;
 
-import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.BariaHQMod;
+import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.util.FUtil;
 import org.bukkit.ChatColor;

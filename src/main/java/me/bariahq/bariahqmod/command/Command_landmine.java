@@ -1,6 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Iterator;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.fun.Landminer.Landmine;
 import me.bariahq.bariahqmod.rank.Rank;
@@ -11,6 +10,8 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Iterator;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Set a landmine trap.", usage = "/<command>")

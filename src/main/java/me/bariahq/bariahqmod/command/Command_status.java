@@ -1,13 +1,14 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.HashMap;
-import java.util.Map;
 import me.bariahq.bariahqmod.rank.Rank;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
 @CommandParameters(description = "Show misc. server info.", usage = "/<command>")

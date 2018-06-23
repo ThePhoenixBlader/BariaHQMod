@@ -1,8 +1,6 @@
 package me.bariahq.bariahqmod.player;
 
 import com.google.common.collect.Lists;
-import java.util.Collections;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import net.pravian.aero.base.ConfigLoadable;
@@ -12,9 +10,13 @@ import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
+import java.util.Collections;
+import java.util.List;
+
 public class PlayerData implements ConfigLoadable, ConfigSavable, Validatable
 {
 
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private String username;
@@ -24,7 +26,6 @@ public class PlayerData implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private long lastJoinUnix;
-    private final List<String> ips = Lists.newArrayList();
 
     public PlayerData(Player player)
     {

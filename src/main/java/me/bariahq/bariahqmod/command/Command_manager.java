@@ -1,24 +1,25 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.bariahq.bariahqmod.ChatManager;
-import me.bariahq.bariahqmod.staff.StaffMember;
-import me.bariahq.bariahqmod.rank.Rank;
-import me.bariahq.bariahqmod.util.FUtil;
 import me.bariahq.bariahqmod.banning.Ban;
 import me.bariahq.bariahqmod.player.PlayerData;
+import me.bariahq.bariahqmod.rank.Rank;
+import me.bariahq.bariahqmod.staff.StaffMember;
+import me.bariahq.bariahqmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.GameMode;
-import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Manager things...", usage = "/<command> [hell: <username> | sccolor: <colorcode | random | nyan>]")
@@ -111,7 +112,7 @@ public class Command_manager extends FreedomCommand
                     else
                     {
                         return false;
-                    }    
+                    }
                 }
                 case "sccolor":
                 {
@@ -174,7 +175,7 @@ public class Command_manager extends FreedomCommand
                             newColor = ChatColor.getByChar(colorChar);
                             ChatManager.scc = newColor;
                             msg(ChatColor.GREEN + "Staffchat color is now " + newColor + newColor.name().toLowerCase().replace("_", " ") + ChatColor.GREEN + "!");
-                           return true;
+                            return true;
                         }
                     }
                 }
@@ -183,6 +184,7 @@ public class Command_manager extends FreedomCommand
         }
         return false;
     }
+
     public void banPlayer(String playerName, String reason, Boolean silent, Boolean kick)
     {
         PlayerData playerData = plugin.pl.getData(playerName);

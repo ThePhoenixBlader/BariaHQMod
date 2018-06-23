@@ -1,17 +1,6 @@
 package me.bariahq.bariahqmod.httpd.module;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
-
 import me.bariahq.bariahqmod.BariaHQMod;
-import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.httpd.HTMLGenerationTools;
 import me.bariahq.bariahqmod.httpd.HTTPDPageBuilder;
@@ -19,10 +8,16 @@ import me.bariahq.bariahqmod.httpd.HTTPDaemon;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD.Method;
 import me.bariahq.bariahqmod.httpd.NanoHTTPD.Response;
+import me.bariahq.bariahqmod.staff.StaffMember;
 import me.bariahq.bariahqmod.util.FLog;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class Module_schematic extends HTTPDModule
 {
@@ -31,9 +26,9 @@ public class Module_schematic extends HTTPDModule
     private static final String REQUEST_FORM_FILE_ELEMENT_NAME = "schematicFile";
     private static final Pattern SCHEMATIC_FILENAME_LC = Pattern.compile("^[a-z0-9_'!,\\-]{1,30}\\.schematic$");
     private static final String[] SCHEMATIC_FILTER = new String[]
-    {
-        "schematic"
-    };
+            {
+                    "schematic"
+            };
     private static final String UPLOAD_FORM = "<form method=\"post\" name=\"schematicForm\" id=\"schematicForm\" action=\"/schematic/upload/\" enctype=\"multipart/form-data\">\n"
             + "<p>Select a schematic file to upload. Filenames must be alphanumeric, between 1 and 30 characters long (inclusive), and have a .schematic extension.</p>\n"
             + "<input type=\"file\" id=\"schematicFile\" name=\"schematicFile\" />\n"
@@ -44,6 +39,12 @@ public class Module_schematic extends HTTPDModule
     public Module_schematic(BariaHQMod plugin, NanoHTTPD.HTTPSession session)
     {
         super(plugin, session);
+    }
+
+    private static String getArg(String[] args, int index)
+    {
+        String out = (args.length == index + 1 ? args[index] : null);
+        return (out == null ? null : (out.trim().isEmpty() ? null : out.trim()));
     }
 
     @Override
@@ -242,6 +243,41 @@ public class Module_schematic extends HTTPDModule
         return entry != null && entry.isActive();
     }
 
+    private static enum ModuleMode
+    {
+
+        LIST("list"),
+        UPLOAD("upload"),
+        DOWNLOAD("download"),
+        INVALID(null);
+        //
+        private final String modeName;
+
+        private ModuleMode(String modeName)
+        {
+            this.modeName = modeName;
+        }
+
+        public static ModuleMode getMode(String needle)
+        {
+            for (ModuleMode mode : values())
+            {
+                final String haystack = mode.toString();
+                if (haystack != null && haystack.equalsIgnoreCase(needle))
+                {
+                    return mode;
+                }
+            }
+            return INVALID;
+        }
+
+        @Override
+        public String toString()
+        {
+            return this.modeName;
+        }
+    }
+
     private static class SchematicTransferException extends Exception
     {
 
@@ -268,47 +304,6 @@ public class Module_schematic extends HTTPDModule
         public Response getResponse()
         {
             return response;
-        }
-    }
-
-    private static String getArg(String[] args, int index)
-    {
-        String out = (args.length == index + 1 ? args[index] : null);
-        return (out == null ? null : (out.trim().isEmpty() ? null : out.trim()));
-    }
-
-    private static enum ModuleMode
-    {
-
-        LIST("list"),
-        UPLOAD("upload"),
-        DOWNLOAD("download"),
-        INVALID(null);
-        //
-        private final String modeName;
-
-        private ModuleMode(String modeName)
-        {
-            this.modeName = modeName;
-        }
-
-        @Override
-        public String toString()
-        {
-            return this.modeName;
-        }
-
-        public static ModuleMode getMode(String needle)
-        {
-            for (ModuleMode mode : values())
-            {
-                final String haystack = mode.toString();
-                if (haystack != null && haystack.equalsIgnoreCase(needle))
-                {
-                    return mode;
-                }
-            }
-            return INVALID;
         }
     }
 

@@ -1,6 +1,5 @@
 package me.bariahq.bariahqmod.command;
 
-import java.util.Random;
 import me.bariahq.bariahqmod.rank.Rank;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -9,13 +8,25 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.Random;
+
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Make some noise.", usage = "/<command>")
 public class Command_deafen extends FreedomCommand
 {
 
-    private static final Random random = new Random();
     public static final double STEPS = 10.0;
+    private static final Random random = new Random();
+
+    private static Location randomOffset(Location a, double magnitude)
+    {
+        return a.clone().add(randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude);
+    }
+
+    private static Double randomDoubleRange(double min, double max)
+    {
+        return min + (random.nextDouble() * ((max - min) + 1.0));
+    }
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -38,15 +49,5 @@ public class Command_deafen extends FreedomCommand
         }
 
         return true;
-    }
-
-    private static Location randomOffset(Location a, double magnitude)
-    {
-        return a.clone().add(randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude);
-    }
-
-    private static Double randomDoubleRange(double min, double max)
-    {
-        return min + (random.nextDouble() * ((max - min) + 1.0));
     }
 }
