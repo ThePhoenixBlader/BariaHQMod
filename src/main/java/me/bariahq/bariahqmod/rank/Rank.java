@@ -6,7 +6,6 @@ import org.bukkit.ChatColor;
 public enum Rank implements Displayable
 {
 
-<<<<<<< HEAD
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.DARK_AQUA),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.DARK_AQUA),
@@ -14,16 +13,6 @@ public enum Rank implements Displayable
     MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.GOLD),
     ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.RED),
     SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrA", ChatColor.LIGHT_PURPLE),
-=======
-    SUPER_ADMIN("", "", Type.PLAYER, "", null),
-    IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.GREEN),
-    NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
-    OP("an", "OP", Type.PLAYER, "OP", ChatColor.GREEN),
-    DONATOR("a", "Donator", Type.PLAYER, "Donator", ChatColor.RED),
-    MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.AQUA),
-    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.GOLD),
-    SENIOR_ADMIN("a", "Senior Admin", Type.STAFF, "SrAdmin", ChatColor.RED),
->>>>>>> 84c302a77482add278dd5815814955f8f672bc1a
     ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
