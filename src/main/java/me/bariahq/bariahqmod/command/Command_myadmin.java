@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag | setscformat | clearscformat>")
+@CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag>")
 public class Command_myadmin extends FreedomCommand
 {
 
