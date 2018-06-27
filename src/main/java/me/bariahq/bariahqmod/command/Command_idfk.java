@@ -40,9 +40,6 @@ public class Command_idfk extends FreedomCommand
                 msg("robin is a meme xD xD xD http://creeperseth.com/robinsmeme");
                 msg("http://invitemeplease.rubyroseisgay.creeperseth.com/deth");
                 break;
-            case "succ":
-                playerSender.chat("mmmmm *suckle* *suckle* daddy");
-                break;
             case "drunk":
                 msg(DRUNK_LINES[random.nextInt(DRUNK_LINES.length)]);
                 break;

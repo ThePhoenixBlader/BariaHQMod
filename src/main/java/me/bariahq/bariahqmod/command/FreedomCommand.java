@@ -18,8 +18,8 @@ import org.bukkit.entity.Player;
 public abstract class FreedomCommand extends AbstractCommandBase<BariaHQMod>
 {
 
-    public static final String YOU_ARE_OP = ChatColor.YELLOW + "You are now op!";
-    public static final String YOU_ARE_NOT_OP = ChatColor.YELLOW + "You are no longer op!";
+    public static final String YOU_ARE_OP = ChatColor.DARK_AQUA + "You are now op!";
+    public static final String YOU_ARE_NOT_OP = ChatColor.DARK_AQUA + "You are no longer op!";
     public static final String NOT_FROM_CONSOLE = "This command may not be used from the console.";
     public static final String PLAYER_NOT_FOUND = ChatColor.GRAY + "Player not found!";
     //

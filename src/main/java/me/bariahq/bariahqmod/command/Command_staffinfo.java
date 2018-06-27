@@ -15,7 +15,7 @@ public class Command_staffinfo extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        msg("How to apply for staff on the UnraveledMC server:", ChatColor.AQUA);
+        msg("How to apply for staff on the BariaHQ server:", ChatColor.AQUA);
         msg(" - Do not ask for staff in game,", ChatColor.DARK_GREEN);
         msg(" - Be helpful within the server,", ChatColor.GOLD);
         msg(" - Report those breaking the rules,", ChatColor.DARK_GREEN);
