@@ -85,6 +85,7 @@ public class HTTPDaemon extends FreedomService
         module("permbans", Module_permbans.class, true);
         module("players", Module_players.class, false);
         module("schematic", Module_schematic.class, true);
+        module("punishments", Module_punishments.class, true);
 
         try
         {
