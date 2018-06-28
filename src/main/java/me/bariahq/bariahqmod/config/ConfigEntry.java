@@ -104,7 +104,12 @@ public enum ConfigEntry
     HOST_SENDER_NAMES(List.class, "host_sender_names"),
     FAMOUS_PLAYERS(List.class, "famous_players"),
     OVERLORD_IPS(List.class, "overlord_ips"),
-    AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe");
+    AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe"),
+    //
+    SPAWN_WORLD_NAME(String.class, "spawn.name"),
+    SPAWN_X_POSITION(Integer.class, "spawn.x"),
+    SPAWN_Y_POSITION(Integer.class, "spawn.y"),
+    SPAWN_Z_POSITION(Integer.class, "spawn.z");
     //
     private final Class<?> type;
     private final String configName;

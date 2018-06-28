@@ -56,6 +56,17 @@ verification:
 # Should players be opped on join
 op_on_join: true
 
+# BariaHQ spawn
+spawn:
+    # Current world
+    name: 'flatlands'
+    # X position
+    x: 0
+    # Y position
+    y: 50
+    # Z position
+    z: 0
+
 # The shop
 shop:
   # Enable the shop
