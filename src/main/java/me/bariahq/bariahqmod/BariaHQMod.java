@@ -13,7 +13,6 @@ import me.bariahq.bariahqmod.donator.DonatorList;
 import me.bariahq.bariahqmod.freeze.Freezer;
 import me.bariahq.bariahqmod.fun.*;
 import me.bariahq.bariahqmod.httpd.HTTPDaemon;
-import me.bariahq.bariahqmod.leveling.LevelManager;
 import me.bariahq.bariahqmod.player.PlayerList;
 import me.bariahq.bariahqmod.punishment.PunishmentList;
 import me.bariahq.bariahqmod.rank.RankManager;
@@ -97,7 +96,6 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
     public HTTPDaemon hd;
     public Lightning ln;
     public CrescentRose cr;
-    public LevelManager lvm;
     public DonatorList dl;
     public PunishmentList pul;
     //
@@ -168,9 +166,8 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         sf = services.registerService(SavedFlags.class);
         wm = services.registerService(WorldManager.class);
         al = services.registerService(StaffList.class);
-        rm = services.registerService(RankManager.class);
         dl = services.registerService(DonatorList.class);
-        lvm = services.registerService(LevelManager.class);
+        rm = services.registerService(RankManager.class);
         cl = services.registerService(CommandLoader.class);
         cb = services.registerService(CommandBlocker.class);
         eb = services.registerService(EventBlocker.class);

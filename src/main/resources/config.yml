@@ -26,6 +26,9 @@ server:
     - Cowgomooo12
     - NosamH
     - 64BitJava
+    
+  # All players who show up as architect
+  architects: []
 
   # URL players should appeal for bans at
   ban_url: https://bariahq.net/forum

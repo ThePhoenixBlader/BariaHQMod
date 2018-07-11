@@ -191,7 +191,7 @@ public final class StaffWorld extends CustomWorld
         Boolean cached = accessCache.get(player);
         if (cached == null)
         {
-            boolean canAccess = plugin.al.isStaffMember(player);
+            boolean canAccess = plugin.al.isStaffMember(player) || ConfigEntry.SERVER_ARCHITECTS.getStringList().contains(player.getName());
             if (!canAccess)
             {
                 Player supervisor = guestList.get(player);

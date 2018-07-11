@@ -31,35 +31,6 @@ public class ServerPing extends FreedomService
     {
         final String ip = event.getAddress().getHostAddress().trim();
 
-        if (plugin.bm.isIpBanned(ip))
-        {
-            event.setMotd(ChatColor.RED + "You are banned.");
-            return;
-        }
-
-        if (ConfigEntry.STAFF_ONLY_MODE.getBoolean())
-        {
-            event.setMotd(ChatColor.RED + "Server is closed.");
-            return;
-        }
-
-        if (LoginProcess.isLockdownEnabled())
-        {
-            event.setMotd(ChatColor.RED + "Server is on lockdown.");
-        }
-
-        if (Bukkit.hasWhitelist())
-        {
-            event.setMotd(ChatColor.RED + "Whitelist enabled.");
-            return;
-        }
-
-        if (Bukkit.getOnlinePlayers().size() >= Bukkit.getMaxPlayers())
-        {
-            event.setMotd(ChatColor.RED + "Server is full.");
-            return;
-        }
-
         String lineone = ConfigEntry.MOTD_LINE_ONE.getString().replace("%mcversion%", plugin.si.getVersion());
         String linetwo = ConfigEntry.MOTD_LINE_TWO.getString().replace("%mcversion%", plugin.si.getVersion());
         String baseMotd = FUtil.colorize(lineone + "\n" + linetwo);

@@ -3,7 +3,6 @@ package me.bariahq.bariahqmod.shop;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
-import me.bariahq.bariahqmod.leveling.Level;
 import net.pravian.aero.base.ConfigLoadable;
 import net.pravian.aero.base.ConfigSavable;
 import net.pravian.aero.base.Validatable;
@@ -42,7 +41,6 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private boolean minigun = false;
-    private String level = "PEASANT";
 
     public ShopData(Player player)
     {
@@ -67,7 +65,6 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         this.thorHammer = cs.getBoolean("thorHammer", thorHammer);
         this.crescentRose = cs.getBoolean("crescentRose", crescentRose);
         this.minigun = cs.getBoolean("minigun", minigun);
-        this.level = cs.getString("level", level);
     }
 
     @Override
@@ -83,7 +80,6 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("thorHammer", thorHammer);
         cs.set("crescentRose", crescentRose);
         cs.set("minigun", minigun);
-        cs.set("level", level);
     }
 
     public List<String> getIps()
@@ -102,22 +98,11 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         return ips.remove(ip);
     }
 
-    public Level getLevel()
-    {
-        return Level.findLevel(level);
-    }
-
-    public void setLevel(Level lvl)
-    {
-        level = lvl.toString();
-    }
-
     @Override
     public boolean isValid()
     {
         return username != null
                 && !ips.isEmpty()
-                && !loginMessage.isEmpty()
-                && !level.isEmpty();
+                && !loginMessage.isEmpty();
     }
 }

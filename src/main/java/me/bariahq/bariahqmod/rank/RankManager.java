@@ -48,6 +48,11 @@ public class RankManager extends FreedomService
         {
             return Rank.IMPOSTOR;
         }
+        
+        if (ConfigEntry.SERVER_ARCHITECTS.getStringList().contains(player.getName()))
+        {
+            return Title.ARCHITECT;
+        }
 
         // TF Developers
         if (FUtil.TFDEVS.contains(player.getName()) && !FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
@@ -61,7 +66,7 @@ public class RankManager extends FreedomService
             return Rank.DONATOR;
         }
 
-        // UMC Developers
+        // BHQ Developers
         if (FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.BHQDEV;
@@ -79,8 +84,7 @@ public class RankManager extends FreedomService
             return Title.FOUNDER;
         }
 
-        // If the player's an executive, display that
-        // Change this later \/
+        // If the player's a manager, display that
         if (ConfigEntry.SERVER_MANAGERS.getList().contains(player.getName()) && !FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.MANAGER;

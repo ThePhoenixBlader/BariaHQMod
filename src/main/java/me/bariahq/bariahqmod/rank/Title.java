@@ -5,13 +5,13 @@ import org.bukkit.ChatColor;
 
 public enum Title implements Displayable
 {
+    ARCHITECT("an", "Architect", ChatColor.GREEN, "Architect"),
     TFDEV("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     BHQDEV("a", "BariaHQ Developer", ChatColor.DARK_PURPLE, "Dev"),
     MANAGER("a", "Manager", ChatColor.BLUE, "Manager"),
     FOUNDER("the", "Founder", ChatColor.DARK_AQUA, "Founder"),
     OWNER("an", "Owner", ChatColor.DARK_AQUA, "Owner");
 
-    @Getter
     private final String determiner;
     @Getter
     private final String name;
@@ -22,8 +22,6 @@ public enum Title implements Displayable
     @Getter
     private final String abbr;
     @Getter
-    private final String donatorRank;
-    @Getter
     private final ChatColor color;
 
     private Title(String determiner, String name, ChatColor color, String abbr)
@@ -33,7 +31,6 @@ public enum Title implements Displayable
         this.tag = abbr.toUpperCase();
         this.coloredTag = abbr.isEmpty() ? "" : color + "" + ChatColor.BOLD + abbr.toUpperCase();
         this.abbr = abbr;
-        this.donatorRank = null;
         this.color = color;
     }
 
