@@ -100,8 +100,6 @@ public class Command_ban extends FreedomCommand
         // Broadcast
         final StringBuilder bcast = new StringBuilder()
                 .append(ChatColor.RED)
-                .append(sender.getName())
-                .append(" - ")
                 .append("Banning: ")
                 .append(username)
                 .append(", IPs: ")
@@ -110,7 +108,7 @@ public class Command_ban extends FreedomCommand
         {
             bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
         }
-        FUtil.bcastMsg(bcast.toString());
+        FUtil.staffAction(sender.getName(), bcast.toString(), true);
 
         // Kick player
         if (player != null)

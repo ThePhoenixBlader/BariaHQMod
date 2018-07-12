@@ -226,7 +226,7 @@ public class RankManager extends FreedomService
                 }
             }
 
-            String displayName = display.getColoredTag() + " " + player.getName();
+            String displayName = display.getColoredTag() + ChatColor.RESET + " " + player.getName();
             try
             {
                 player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
