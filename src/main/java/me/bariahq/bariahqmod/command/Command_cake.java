@@ -2,7 +2,6 @@ package me.bariahq.bariahqmod.command;
 
 import me.bariahq.bariahqmod.rank.Rank;
 import me.bariahq.bariahqmod.util.FUtil;
-import org.bukkit.Achievement;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Random;
-import org.bukkit.Bukkit;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "For the people that are still alive.", usage = "/<command>")

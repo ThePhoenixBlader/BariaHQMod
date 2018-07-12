@@ -3,10 +3,13 @@ package me.bariahq.bariahqmod.blocking;
 import me.bariahq.bariahqmod.BariaHQMod;
 import me.bariahq.bariahqmod.FreedomService;
 import me.bariahq.bariahqmod.config.ConfigEntry;
+import org.bukkit.attribute.Attributable;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntitySpawnEvent;
 
 public class MobBlocker extends FreedomService
 {
@@ -24,6 +27,28 @@ public class MobBlocker extends FreedomService
     @Override
     protected void onStop()
     {
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onEntitySpawn(EntitySpawnEvent event)
+    {
+        if (!(event instanceof LivingEntity))
+        {
+            return;
+        }
+
+        Entity e = event.getEntity();
+        if (e instanceof Attributable)
+        {
+            if (((Attributable) e).getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getBaseValue() > 255.0)
+            {
+                ((Attributable) e).getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(255.0);
+            }
+            if (((Attributable) e).getAttribute(Attribute.GENERIC_FOLLOW_RANGE).getBaseValue() > 255.0)
+            {
+                ((Attributable) e).getAttribute(Attribute.GENERIC_FOLLOW_RANGE).setBaseValue(255.0);
+            }
+        }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)

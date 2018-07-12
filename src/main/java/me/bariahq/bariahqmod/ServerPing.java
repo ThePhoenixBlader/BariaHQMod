@@ -2,8 +2,6 @@ package me.bariahq.bariahqmod;
 
 import me.bariahq.bariahqmod.config.ConfigEntry;
 import me.bariahq.bariahqmod.util.FUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.server.ServerListPingEvent;

@@ -1,6 +1,5 @@
 package me.bariahq.bariahqmod;
 
-import com.google.common.base.Strings;
 import me.bariahq.bariahqmod.player.FPlayer;
 import me.bariahq.bariahqmod.rank.Displayable;
 import me.bariahq.bariahqmod.shop.ShopData;

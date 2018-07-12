@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
-@CommandParameters(description = "Shows how to apply for staff", usage = "/<command>", aliases = "si")
+@CommandParameters(description = "Shows how to apply for staff", usage = "/<command>", aliases = "si,admininfo,ai")
 public class Command_staffinfo extends FreedomCommand
 {
 

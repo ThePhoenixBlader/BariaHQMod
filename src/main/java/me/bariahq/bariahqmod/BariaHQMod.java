@@ -1,5 +1,6 @@
 package me.bariahq.bariahqmod;
 
+import me.bariahq.bariahqmod.architect.ArchitectList;
 import me.bariahq.bariahqmod.banning.BanManager;
 import me.bariahq.bariahqmod.banning.PermbanList;
 import me.bariahq.bariahqmod.blocking.*;
@@ -98,6 +99,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
     public CrescentRose cr;
     public DonatorList dl;
     public PunishmentList pul;
+    public ArchitectList arl;
     //
     // Bridges
     public ServiceManager<BariaHQMod> bridges;
@@ -194,6 +196,7 @@ public class BariaHQMod extends AeroPlugin<BariaHQMod>
         sc = services.registerService(ServiceChecker.class);
         gr = services.registerService(GameRuleHandler.class);
         pul = services.registerService(PunishmentList.class);
+        arl = services.registerService(ArchitectList.class);
 
         // Single admin utils
         cs = services.registerService(CommandSpy.class);

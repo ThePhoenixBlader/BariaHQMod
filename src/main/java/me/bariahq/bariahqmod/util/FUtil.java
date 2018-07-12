@@ -29,7 +29,7 @@ public class FUtil
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     // Leave the TFDEVS List alone, those are the TotalFreedom Developers.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ", "OxLemonxO", "ZeroEpoch1969", "Mafrans");
-    public static final List<String> BHQDEVS = Arrays.asList("ZeroEpoch1969", "OkLemonxO", "_Fleek_", "Super_");
+    public static final List<String> BHQDEVS = Arrays.asList("_Fleek_", "Super_", "taahanis");
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
             ChatColor.DARK_BLUE,

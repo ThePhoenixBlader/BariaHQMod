@@ -48,7 +48,7 @@ public class RankManager extends FreedomService
         {
             return Rank.IMPOSTOR;
         }
-        
+
         if (ConfigEntry.SERVER_ARCHITECTS.getStringList().contains(player.getName()))
         {
             return Title.ARCHITECT;
@@ -201,7 +201,7 @@ public class RankManager extends FreedomService
         }
 
         // Set display
-        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.BHQDEVS.contains(player.getName()) || plugin.dl.isDonator(player))
+        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.BHQDEVS.contains(player.getName()) || plugin.dl.isDonator(player) || plugin.arl.isArchitect(player))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
@@ -226,7 +226,7 @@ public class RankManager extends FreedomService
                 }
             }
 
-            String displayName = display.getColor() + player.getName();
+            String displayName = display.getColoredTag() + " " + player.getName();
             try
             {
                 player.setPlayerListName(StringUtils.substring(displayName, 0, 16));

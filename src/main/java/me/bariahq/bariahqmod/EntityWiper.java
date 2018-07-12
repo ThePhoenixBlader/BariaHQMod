@@ -159,5 +159,4 @@ public class EntityWiper extends FreedomService
         Inventory inv = ((InventoryHolder) state).getInventory();
         inv.clear();
     }
-
 }
