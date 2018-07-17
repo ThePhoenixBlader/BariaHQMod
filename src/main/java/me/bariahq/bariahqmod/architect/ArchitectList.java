@@ -161,6 +161,11 @@ public class ArchitectList extends FreedomService
         return null;
     }
 
+    public boolean isArchitect(Player player)
+    {
+        return getArchitect(player) != null;
+    }
+
     public Architect getEntryByName(String name)
     {
         return nameTable.get(name.toLowerCase());

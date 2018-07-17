@@ -49,11 +49,6 @@ public class RankManager extends FreedomService
             return Rank.IMPOSTOR;
         }
 
-        if (ConfigEntry.SERVER_ARCHITECTS.getStringList().contains(player.getName()))
-        {
-            return Title.ARCHITECT;
-        }
-
         // TF Developers
         if (FUtil.TFDEVS.contains(player.getName()) && !FUtil.BHQDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
@@ -64,6 +59,12 @@ public class RankManager extends FreedomService
         if (plugin.dl.isDonator(player) && !plugin.al.isStaffMember(player))
         {
             return Rank.DONATOR;
+        }
+
+        // If a player is an architect and not on the staff list, display that
+        if (plugin.arl.isArchitect(player) && !plugin.al.isStaffMember(player))
+        {
+            return Title.ARCHITECT;
         }
 
         // BHQ Developers
@@ -226,7 +227,7 @@ public class RankManager extends FreedomService
                 }
             }
 
-            String displayName = display.getColoredTag() + ChatColor.RESET + " " + player.getName();
+            String displayName = display.getColor() + StringUtils.substring(display.getTag(), 0, 1) + ChatColor.RESET + " " + player.getName();
             try
             {
                 player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
