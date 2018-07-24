@@ -10,7 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Ban an ip", usage = "/<command> <ip> [reason]")
 public class Command_banip extends FreedomCommand
 {
