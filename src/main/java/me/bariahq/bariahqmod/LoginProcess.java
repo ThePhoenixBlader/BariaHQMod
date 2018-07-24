@@ -228,7 +228,7 @@ public class LoginProcess extends FreedomService
                     List<String> messages = new ArrayList();
                     for (Object msg : ConfigEntry.STAFF_LOGIN_MESSAGE.getList())
                     {
-                        messages.add(FUtil.colorize((String) msg));
+                        messages.add(FUtil.colorize((String) msg).replace("%rank%", plugin.al.getStaffMember(player).getRank().getColor() + plugin.al.getStaffMember(player).getRank().getName()));
                     }
                     for (int i = 0; i < messages.size(); i++)
                     {
