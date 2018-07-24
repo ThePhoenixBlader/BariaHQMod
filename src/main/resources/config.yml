@@ -56,6 +56,14 @@ verification:
   # A token must be specified if you have enabled verification
   token: ''
 
+#The discord bot reports channel ID
+discord:
+  #Enable the discord reports system
+  enabled: false
+  #Reports channel ID
+  #Turn on Dev Mode and right click your reports channel and copy ID
+  channelid: ''
+
 # Should players be opped on join
 op_on_join: true
 
@@ -100,8 +108,8 @@ shop:
 staff:
   # Message to display to staff members when they login (supports color codes and is multi-line)
   staff_login_message:
-    - '&bWelcome back to &3BariaHQ&b!'
-    - '&bBe sure to keep an eye on the ops!'
+    - '&7Welcome back to &9BariaHQ&7! You are a %rank%.'
+    - '&9Be sure to keep an eye on the ops!'
 
   # URL to the staff application template
   staff_application_url: 'https://bariahq.net/apply/'
@@ -339,7 +347,7 @@ announcer:
   interval: 600
 
   # Prefix for all announcements
-  prefix: '&7[&3Baria&bHQ&7] &8» &b'
+  prefix: '&7[&1Baria&bHQ&7] &8» &b'
 
   announcements:
     - 'Be sure to visit our forums at &3&llhttps://bariahq.com/forum'
@@ -352,7 +360,7 @@ announcer:
     - 'You may view all online staff via "/list -s"'
     - 'Save your buildings via WorldEdit!'
     - 'We are an offline/cracked server!'
-    - 'agellosQQ is the owner and founder of BariaHQ.'
+    - 'aggelosQQ is the owner and founder of BariaHQ.'
     - 'Server lagging? Check the lag via "/tps"'
     - 'You are allowed to record and stream videos on BariaHQ.'
     - 'Spawn killing is forbidden!'
