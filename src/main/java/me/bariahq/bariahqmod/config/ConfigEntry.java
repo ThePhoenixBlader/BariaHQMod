@@ -48,6 +48,9 @@ public enum ConfigEntry
     DISCORD_VERIFICATION_ENABLED(Boolean.class, "verification.enabled"),
     DISCORD_VERIFICATION_BOT_TOKEN(String.class, "verification.token"),
     //
+    DISCORD_REPORTS_CHANNELID(String.class, "discord.channelid"),
+    DISCORD_REPORTS_ENABLED(Boolean.class, "discord.enabled"),
+    //
     OP_ON_JOIN(Boolean.class, "op_on_join"),
     //
     SHOP_ENABLED(Boolean.class, "shop.enabled"),
