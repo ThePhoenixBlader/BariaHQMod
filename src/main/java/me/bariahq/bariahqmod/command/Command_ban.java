@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Bans a player", usage = "/<command> <username> [reason]", aliases = "gtfo")
 public class Command_ban extends FreedomCommand
 {
