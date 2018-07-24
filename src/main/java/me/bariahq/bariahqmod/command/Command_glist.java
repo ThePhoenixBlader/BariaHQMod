@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Bans or unbans any player, even those who are not logged in anymore.", usage = "/<command> <purge | ban <username> [reason] | unban <username>>")
 public class Command_glist extends FreedomCommand
 {
