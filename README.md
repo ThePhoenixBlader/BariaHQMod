@@ -1,4 +1,5 @@
 # BariaHQMod #
+[![Build Status](https://travis-ci.org/BariaHQ/BariaHQMod.svg?branch=master)](https://travis-ci.org/BariaHQ/BariaHQMod)
 A plugin modification for the BariaHQ server.
 
 Please read the following below:
