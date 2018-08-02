@@ -44,6 +44,11 @@
 
     <repositories>
         <repository>
+            <id>jcenter</id>
+            <name>jcenter-bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+        <repository>
             <id>ess-repo</id>
             <url>http://repo.ess3.net</url>
         </repository>
@@ -62,6 +67,19 @@
         <repository>
             <id>sk89q-snapshots</id>
             <url>http://maven.sk89q.com/artifactory/repo/</url>
+        </repository>
+        <repository>
+            <id>playpro</id>
+            <url>https://maven.playpro.com/</url>
+        </repository>
+        <repository>
+            <id>md_5-public</id>
+            <url>http://repo.md-5.net/content/groups/public/</url>
+        </repository>
+
+        <repository>
+            <id>elmakers-repo</id>
+            <url>http://maven.elmakers.com/repository/</url>
         </repository>
     </repositories>
 
@@ -89,18 +107,16 @@
 
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.12.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/spigot-1.12.2.jar</systemPath>
+            <artifactId>spigot</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.Pravian</groupId>
             <artifactId>Aero</artifactId>
-            <version>2.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/aero-2.1-SNAPSHOT.jar</systemPath>
+            <version>5f82926</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -118,43 +134,37 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.TotalFreedom.TF-WorldEdit</groupId>
+            <groupId>com.github.TFPatches.TF-WorldEdit</groupId>
             <artifactId>worldedit-bukkit</artifactId>
-            <version>6.1.0-TF</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/UMC-WorldEdit.jar</systemPath>
+            <version>2e79570525</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>net.coreprotect</groupId>
-            <artifactId>CoreProtect</artifactId>
+            <artifactId>coreprotect</artifactId>
             <version>2.14.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/CoreProtect_2.14.2.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>me.libraryaddict</groupId>
-            <artifactId>LibsDisguises</artifactId>
-            <scope>system</scope>
-            <version>9.4.0-SNAPSHOT</version>
-            <systemPath>${project.basedir}/lib/LibsDisguises.jar</systemPath>
+            <groupId>com.github.TFPatches</groupId>
+            <artifactId>TF-LibsDisguises</artifactId>
+            <version>c213295f95</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.spigot</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.12.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/spigot-1.12.2.jar</systemPath>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>JDA-3.6.0_354-withDependencies</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/JDA-3.6.0_354-withDependencies.jar</systemPath>
+            <version>3.7.1_386</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
